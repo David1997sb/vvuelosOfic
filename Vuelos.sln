@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vuelos", "Vuelos\Vuelos.csproj", "{00E93068-6F98-4023-8634-744F531CF217}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webApiVuelos", "webApiVuelos\webApiVuelos.csproj", "{38DB2D72-D5CB-409D-AFA8-7E2CD50C75FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{00E93068-6F98-4023-8634-744F531CF217}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00E93068-6F98-4023-8634-744F531CF217}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00E93068-6F98-4023-8634-744F531CF217}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38DB2D72-D5CB-409D-AFA8-7E2CD50C75FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38DB2D72-D5CB-409D-AFA8-7E2CD50C75FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38DB2D72-D5CB-409D-AFA8-7E2CD50C75FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38DB2D72-D5CB-409D-AFA8-7E2CD50C75FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
