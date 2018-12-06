@@ -89,6 +89,7 @@
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="userAuthentication.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
