@@ -1,6 +1,6 @@
 ﻿function postLogin() {
     $.ajax({
-        url: "api/login/getUserAuthentication",
+        url: "http://localhost:53069/api/login/getUserAuthentication",
         type: "POST",
         data: { apiKey: "23462", method: "POST", ip: "208.74.35.5" },
         dataType: "json",

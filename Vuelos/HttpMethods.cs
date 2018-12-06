@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web;
 
 namespace Vuelos
 {
     public class HttpMethods
     {
+        private static readonly HttpClient client = new HttpClient();
+
         public string getRequest(string url)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -40,6 +43,22 @@ namespace Vuelos
             {
                 myResponse = sr.ReadToEnd();
             }
+        }
+
+        public async System.Threading.Tasks.Task loginAsync()
+        {
+
+            var values = new Dictionary<string, string>
+                {
+                   { "userName", "dsalas" },
+                   { "password", "admin" }
+                };
+
+            var content = new FormUrlEncodedContent(values);
+
+            var response = await client.PostAsync("http://localhost:53069/api/login/getUserAuthentication", content);
+
+            var responseString = await response.Content.ReadAsStringAsync();
         }
     }
 }
