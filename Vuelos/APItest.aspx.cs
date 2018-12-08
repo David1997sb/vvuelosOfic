@@ -8,7 +8,7 @@ namespace Vuelos
         HttpMethods HttpMethods = new HttpMethods();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //HttpMethods.loginAsync();
+            HttpMethods.loginAsync();
             //string a = HttpMethods.getRequest("http://localhost:61978/api/Users");
         }
 

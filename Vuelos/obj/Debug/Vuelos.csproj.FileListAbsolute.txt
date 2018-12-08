@@ -105,7 +105,6 @@ C:\Vuelos\vvuelosOfic\Vuelos\bin\roslyn\VBCSCompiler.exe
 C:\Vuelos\vvuelosOfic\Vuelos\bin\roslyn\VBCSCompiler.exe.config
 C:\Vuelos\vvuelosOfic\Vuelos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Vuelos\vvuelosOfic\Vuelos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Vuelos\vvuelosOfic\Vuelos\obj\Debug\Vuelos.csprojAssemblyReference.cache
 C:\Vuelos\vvuelosOfic\Vuelos\obj\Debug\Vuelos.csproj.CoreCompileInputs.cache
 C:\Vuelos\vvuelosOfic\Vuelos\obj\Debug\Vuelos.csproj.CopyComplete
 C:\Vuelos\vvuelosOfic\Vuelos\obj\Debug\Vuelos.dll
@@ -166,3 +165,9 @@ C:\vvuelosOfic\Vuelos\obj\Debug\Vuelos.csproj.CoreCompileInputs.cache
 C:\vvuelosOfic\Vuelos\obj\Debug\Vuelos.csproj.CopyComplete
 C:\vvuelosOfic\Vuelos\obj\Debug\Vuelos.dll
 C:\vvuelosOfic\Vuelos\obj\Debug\Vuelos.pdb
+C:\Vuelos\vvuelosOfic\Vuelos\bin\System.Data.SQLite.dll
+C:\Vuelos\vvuelosOfic\Vuelos\bin\System.Data.SQLite.xml
+C:\Vuelos\vvuelosOfic\Vuelos\bin\System.Data.SQLite.dll.config
+C:\Vuelos\vvuelosOfic\Vuelos\bin\Recaptcha.dll
+C:\Vuelos\vvuelosOfic\Vuelos\bin\Recaptcha.pdb
+C:\Vuelos\vvuelosOfic\Vuelos\obj\Debug\Vuelos.csprojAssemblyReference.cache
