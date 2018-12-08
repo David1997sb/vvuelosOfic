@@ -1,9 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Vuelos.login" %>
+<%@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" %>  
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <<head>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>V-Vuelos</title>
@@ -54,8 +56,8 @@
                             </label>
 
                             <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
-
                         </div>
+                        <div class="g-recaptcha" data-sitekey="6Le3gX8UAAAAAChw78Q5MdAREjlE8tJsKgjMxeLc"></div>
                         <asp:Button ID="btnLogin" runat="server" href="index.aspx" class="login100-form-btn" Text="INICIAR SESIÓN" BackColor="#009933" ForeColor="White" Height="51px" Width="480px" OnClick="btnLogin_Click"/></asp:Button>
                         <div class="social-login-content">
                             <div class="social-button">
