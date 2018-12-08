@@ -46,7 +46,7 @@ namespace Vuelos
                 cmd.Parameters.Add("@type", SqlDbType.VarChar).Value = dropdown.SelectedItem.Value;
                 //Se ejecuta el query
                 cmd.ExecuteNonQuery();
-                // dbm.addBitaData(conn, "1", "Agregando pais", common.getRegistryType(1), "Agregando pais " + txt_nombrePais.Text);
+                 //dbm.addBitaData(conn, "1", "Agregando pais", common.getRegistryType(1), "Agregando pais " + txt_nombrePais.Text);
                 conn.Close();
                 ScriptManager.RegisterClientScriptBlock(this, GetType(),
             "alertMessage", @"alert('Datos actualizados correctamente')", true);

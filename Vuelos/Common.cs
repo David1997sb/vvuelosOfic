@@ -9,6 +9,15 @@ namespace Vuelos
     {
         private DateTime today;
 
+        public string getHour()
+        {
+            String hourMinute;
+
+            hourMinute = DateTime.Now.ToString("HH:mm");
+            return hourMinute;
+
+        } 
+
         public string getUserLogged()
         {
             string user = HttpContext.Current.Session["usserLogged"].ToString();

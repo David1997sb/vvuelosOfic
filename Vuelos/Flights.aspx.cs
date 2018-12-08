@@ -17,25 +17,32 @@ namespace Vuelos
         SqlDataReader rs;
         SqlDataAdapter adapter;
         DataSet ds = new DataSet();
+        Common common = new Common();
         protected void Page_Load(object sender, EventArgs e)
         {
             conn.ConnectionString = WebConfigurationManager.AppSettings["connectionStringServicios"];
-            conn.Open();
-            //Ejecuta el stored procedure
-            cmd = new SqlCommand("sp_airlines", conn);
-            //Se indica que la variable de tipo command va ser de tipo stored procedure
-            cmd.CommandType = CommandType.StoredProcedure;
-            adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(ds);
-            conn.Close();
-            GridView1.DataSource = ds.Tables[0];
-            GridView1.DataBind();
-            conn.Close();
+            
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+
+        protected void Button1_Click1(object sender, EventArgs e)
         {
-            Response.Redirect("AddAirline.aspx");
+            conn.Open();
+            //Ejecuta el stored procedure
+            cmd = new SqlCommand("sp_insert_vuelos", conn);
+            //Se indica que la variable de tipo command va ser de tipo stored procedure
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@vuelo", SqlDbType.VarChar).Value = dropDown_vuelo.SelectedItem.Value;
+            cmd.Parameters.Add("@aerolinea", SqlDbType.VarChar).Value = dropDown_Aero.SelectedItem.Value;
+            cmd.Parameters.Add("@procedencia", SqlDbType.VarChar).Value = dropDown_Pais.SelectedItem.Value;
+            cmd.Parameters.Add("@fecha", SqlDbType.VarChar).Value = common.GetDate();
+            cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = dropDown_tipoPrueta.SelectedItem.Value;
+            cmd.Parameters.Add("@puerta", SqlDbType.VarChar).Value = dropDown_numPuerta.SelectedItem.Value;
+            cmd.Parameters.Add("@boletos", SqlDbType.VarChar).Value = txtBox_CantBoletos.Text;
+            cmd.Parameters.Add("@hora", SqlDbType.VarChar).Value = common.getHour();
+            cmd.Parameters.Add("@precio", SqlDbType.VarChar).Value = txt_Precio.Text;
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }

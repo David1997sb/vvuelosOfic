@@ -135,14 +135,67 @@
 				  </label>
 				  </div>                       
 				  </div>
-                     <asp:GridView ID="GridView1" runat="server" Width="650px">
-                          <Columns>
-                              <asp:ImageField>
-                              </asp:ImageField>
-                              <asp:HyperLinkField HeaderText="editar" NavigateUrl="EditAirline.aspx" Text="editar" />
-                          </Columns>
-                          <HeaderStyle BackColor="#003366" ForeColor="White" />
-                      </asp:GridView>
+                      <div class="card-body card-block">
+                        </section>
+                                    <asp:Label ID="Label1" runat="server" Text="Vuelo" for="text-input" class=" form-control-label"></asp:Label>
+
+                                <asp:DropDownList ID="dropDown_vuelo" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown" DataSourceID="vuelos" DataTextField="codigo_aerolinea" DataValueField="codigo_aerolinea"> 
+                                    
+                                </asp:DropDownList>
+                            <asp:SqlDataSource ID="vuelos" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="SELECT [codigo_aerolinea] FROM [aerolineas]"></asp:SqlDataSource>
+                            <div class="row form-group">
+                                <asp:Label ID="Label2" runat="server" Text="Aerolinea" for="text-input" class=" form-control-label"></asp:Label>
+                                 <asp:DropDownList ID="dropDown_Aero" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown" DataSourceID="SqlDataSource2" DataTextField="nombre_agencia" DataValueField="nombre_agencia"> 
+                                    
+                                </asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="SELECT [nombre_agencia] FROM [aerolineas]"></asp:SqlDataSource>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <asp:Label ID="lbl_procedencia" runat="server" Text="Procedencia" for="text-input" class=" form-control-label"></asp:Label>
+                                    <asp:DropDownList ID="dropDown_Pais" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown" DataSourceID="SqlDataSource1" DataTextField="nombre_pais" DataValueField="nombre_pais" > 
+                                    
+                                </asp:DropDownList>
+                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="SELECT [nombre_pais] FROM [paises]"></asp:SqlDataSource>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <div class="col col-md-3">
+                                    <asp:Label ID="Label3" runat="server" Text="Fecha" for="text-input" class=" form-control-label"></asp:Label>
+                                    <asp:TextBox ID="txtBox_fecha" runat="server"></asp:TextBox>
+                                </div>                                                       
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <asp:Label ID="Label4" runat="server" Text="Tipo Puerta" for="text-input" class=" form-control-label"></asp:Label>
+                                 <asp:DropDownList ID="dropDown_tipoPrueta" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown"> 
+                                    <asp:ListItem Selected="True" class="dropdown-item">Selccion el tipo de puerta</asp:ListItem>
+                                    <asp:ListItem class="dropdown-item" ID="aero">Entrada</asp:ListItem>
+                                    <asp:ListItem class="dropdown-item" id="puerta">Salida</asp:ListItem>
+                                </asp:DropDownList>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <asp:Label ID="Label6" runat="server" Text="Numero Puerta" for="text-input" class=" form-control-label"></asp:Label>
+                                    <asp:DropDownList ID="dropDown_numPuerta" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown" DataSourceID="SqlDataSource3" DataTextField="id" DataValueField="id"> 
+                                    <asp:ListItem Selected="True" class="dropdown-item">Selccion el tipo de puerta</asp:ListItem>
+                                    
+                                </asp:DropDownList>
+                                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="SELECT [id] FROM [puertas]"></asp:SqlDataSource>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <div class="col col-md-3">
+                                    <asp:Label ID="Label5" runat="server" Text="Cantidad de boletos" for="text-input" class=" form-control-label"></asp:Label>
+                                    <asp:TextBox ID="txtBox_CantBoletos" runat="server"></asp:TextBox>
+                                </div>  
+                             <div class="col-12 col-md-9">
+                                    <div class="col col-md-3">
+                                    <asp:Label ID="Label7" runat="server" Text="Precio" for="text-input" class=" form-control-label"></asp:Label>
+                                    <asp:TextBox ID="txt_Precio" runat="server"></asp:TextBox>
+                                </div>          
+                                    <asp:Button ID="Button1" runat="server" Text="Crear vuelo" OnClick="Button1_Click1"/>
+                            </div>
+
+                        </form>
+                    </div>
 				  </div>
 
 				    
