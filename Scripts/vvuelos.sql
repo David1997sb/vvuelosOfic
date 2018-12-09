@@ -62,7 +62,7 @@ FOREIGN KEY (usuario) REFERENCES usuario(usuario)
 )
 create table vuelos
 (
-consecutivo varchar(2000) PRIMARY KEY,
+consecutivo int PRIMARY KEY IDENTITY (1, 1),
 vuelo nvarchar(2000) NOT NULL,
 aerolinea nvarchar(2000) NOT NULL,
 procedencia nvarchar(2000) NOT NULL,
@@ -71,6 +71,7 @@ hora nvarchar(2000) NOT NULL,
 estado nvarchar(2000) NOT NULL,
 puerta int  NOT NULL,
 boletos nvarchar(2000) NOT NULL,
+precio nvarchar(2000),
 FOREIGN KEY (aerolinea) REFERENCES aerolineas(consecutivo),
 FOREIGN KEY (puerta) REFERENCES puertas(id),
 )

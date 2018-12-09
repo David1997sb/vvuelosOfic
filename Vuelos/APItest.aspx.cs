@@ -8,7 +8,11 @@ namespace Vuelos
         HttpMethods HttpMethods = new HttpMethods();
         protected void Page_Load(object sender, EventArgs e)
         {
-            HttpMethods.loginAsync();
+            HttpMethods.postUserAccount(123456789, 12, 2022, 6996, "mastercard", "amartinez");
+            //HttpMethods.updateUserBalance("dsalas", "1111111", 25000);
+            //HttpMethods.getUserBalance("dsalas", "1111111");
+            //HttpMethods.getUserBalance();
+            //HttpMethods.loginAsync();
             //string a = HttpMethods.getRequest("http://localhost:61978/api/Users");
         }
 

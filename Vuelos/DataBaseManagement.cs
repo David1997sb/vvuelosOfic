@@ -65,6 +65,25 @@ namespace Vuelos
             conn.Close();
             return colValue1;
         }
+
+        public List<Int32> getCardsByUser(SqlCommand cmd, SqlConnection conn)
+        {
+            List<Int32> cardsByUser = new List<int>();
+            conn.Open();
+            int colValue1;
+            SqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                // read the values from the data reader, e.g.
+                // adapt to match your actual query! You didn't mentioned *what columns*
+                // are being returned, and what data type they are
+                colValue1 = rdr.GetInt32(0);
+                cardsByUser.Add(colValue1);
+            }
+            conn.Close();
+            return cardsByUser;
+        } 
+
         public string getColumValue2(SqlCommand cmd, SqlConnection conn)
         {
             conn.Open();
