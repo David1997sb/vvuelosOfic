@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Flights.aspx.cs" Inherits="Vuelos.Flights" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Flights.aspx.cs" Inherits="Vuelos.Airlines" %>
 
 <!DOCTYPE html>
 
@@ -133,14 +133,18 @@
 				  <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="bootstrap-data-table">
 				  </label>
 				  </div>
-                      <asp:GridView ID="GridView1" runat="server" Width="650px">
+                      <asp:GridView ID="GridView2" runat="server" Width="650px" runnat="server" AutoGenerateColumns="False" AutoGenerateSelectButton="True" DataKeyNames="consecutivo" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                           <Columns>
-                              <asp:ImageField>
-                              </asp:ImageField>
-                              <asp:HyperLinkField HeaderText="editar" NavigateUrl="EditCountry.aspx" Text="editar" />
+                              
+                              <asp:BoundField DataField="consecutivo" HeaderText="consecutivo" ReadOnly="True" SortExpression="consecutivo" />
+                              <asp:BoundField DataField="codigo_aerolinea" HeaderText="codigo_aerolinea" SortExpression="codigo_aerolinea" />
+                              <asp:BoundField DataField="nombre_agencia" HeaderText="nombre_agencia" SortExpression="nombre_agencia" />
+                              <asp:BoundField DataField="imagen_agencia" HeaderText="imagen_agencia" SortExpression="imagen_agencia" />
+                              
                           </Columns>
                           <HeaderStyle BackColor="#003366" ForeColor="White" />
                       </asp:GridView>
+				      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ServiciosWebConnectionString %>" SelectCommand="sp_airlines" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
 				  </div>
                       
 				  </div>				   

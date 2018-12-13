@@ -23,16 +23,18 @@ namespace Vuelos
         protected void Page_Load(object sender, EventArgs e)
         {
             conn.ConnectionString = WebConfigurationManager.AppSettings["connectionStringServicios"];
-            conn.Open();
-            //Ejecuta el stored procedure
-            cmd = new SqlCommand("sp_airlines", conn);
-            //Se indica que la variable de tipo command va ser de tipo stored procedure
-            cmd.CommandType = CommandType.StoredProcedure;
-            adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(ds);
-            conn.Close();
-            GridView1.DataSource =ds.Tables[0];
-            GridView1.DataBind();
+           
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddAirline.aspx");
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow gr = GridView2.SelectedRow;
+            Response.Redirect("EditAirline.aspx?consecutivo=" + gr.Cells[1].Text + "&codAero=" + gr.Cells[2].Text + "&nombreAgencia=" + gr.Cells[3].Text + "&imagen=" + gr.Cells[4].Text);
         }
     }
 }

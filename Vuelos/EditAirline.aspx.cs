@@ -21,21 +21,25 @@ namespace Vuelos
         protected void Page_Load(object sender, EventArgs e)
         {
             conn.ConnectionString = WebConfigurationManager.AppSettings["connectionStringServicios"];
+            txt_codAerolinea.Text = Request.QueryString["codAero"].ToString();
+            txt_nombreAgencia.Text = Request.QueryString["nombreAgencia"].ToString();
         }
 
         protected void btn_aceptar_Click(object sender, EventArgs e)
         {
             try
             {
+                txt_nombreAgencia.Text = txt_nombreAgencia.Text;
                 conn.Open();
                 //Ejecuta el stored procedure
                 cmd = new SqlCommand("sp_edit_airline", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@code", SqlDbType.VarChar).Value = txt_codAerolinea.Text;//de momento esta quemado, pero debe de ser dinamico
-                cmd.Parameters.Add("@agency_name", SqlDbType.VarChar).Value = txt_nombreAgencia.Text;
-                var a = cmd.Parameters.Add("@image_path", SqlDbType.VarChar).Value = Server.MapPath(fp_imagen.FileName).ToString();
+                cmd.Parameters.Add("@consecutivo", SqlDbType.VarChar).Value = Request.QueryString["consecutivo"].ToString();//de momento esta quemado, pero debe de ser dinamico
+                cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = txt_nombreAgencia.Text;
+                cmd.Parameters.Add("@codigo", SqlDbType.VarChar).Value = txt_codAerolinea.Text;
+                var a = cmd.Parameters.Add("@imagen", SqlDbType.VarChar).Value = Server.MapPath(fp_imagen.FileName).ToString();
                 int rowsAffected = cmd.ExecuteNonQuery();
-                dbm.addBitaData(conn, "2", "Editando Aerolinea", common.getRegistryType(2), "Editando aerolinea " + txt_nombreAgencia.Text);
+                //dbm.addBitaData(conn, "2", "Editando Aerolinea", common.getRegistryType(2), "Editando aerolinea " + txt_nombreAgencia.Text);
                 ScriptManager.RegisterClientScriptBlock(this, GetType(),
             "alertMessage", @"alert('Datos actualizados correctamente')", true);
                 conn.Close();

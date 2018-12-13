@@ -71,7 +71,7 @@
                         <asp:LinkButton ID="btn_aceptar" runat="server" class="btn btn-primary btn-sm" OnClick="btn_aceptar_Click">
                             <i class="fa fa-dot-circle-o"></i>Aceptar
                         </asp:LinkButton>
-                        <asp:LinkButton ID="btn_limpiar" runat="server" class="btn btn-primary btn-sm">
+                        <asp:LinkButton ID="btn_limpiar" runat="server" class="btn btn-primary btn-sm" OnClick="btn_limpiar_Click">
                             <i class="fa fa-dot-circle-o"></i>Limpiar
                         </asp:LinkButton>
                         <asp:LinkButton ID="btn_borrar" runat="server" class="btn btn-primary btn-sm" OnClick="btn_borrar_Click">
