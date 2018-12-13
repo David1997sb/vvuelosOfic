@@ -46,6 +46,8 @@ namespace Vuelos
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow gr = GridView1.SelectedRow;
+
+
             Response.Redirect("EditConsecutive.aspx?id=" + gr.Cells[1].Text + "&consecutivo=" + gr.Cells[2].Text+ "&prefijo=" + gr.Cells[3].Text+ "&rangoIni="+gr.Cells[4].Text+ "&rangoFin="+ gr.Cells[5].Text);
         }
     }

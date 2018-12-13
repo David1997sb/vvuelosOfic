@@ -138,14 +138,18 @@
 				  </label>
 				  </div>
 				  </div>
-                       <asp:GridView ID="GridView1" runat="server" Width="650px">
-                          <Columns>
-                              <asp:ImageField>
-                              </asp:ImageField>
-                              <asp:HyperLinkField HeaderText="Editar" NavigateUrl="EditCountry.aspx" Text="Editar" />
-                          </Columns>
+                       <asp:GridView ID="GridView1" runat="server" Width="532px" runnat="server" AutoGenerateColumns="False" AutoGenerateSelectButton="True" DataKeyNames="consecutivo" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" >
+                         
+                           <Columns>
+                               <asp:BoundField DataField="consecutivo" HeaderText="consecutivo" ReadOnly="True" SortExpression="consecutivo" />
+                               <asp:BoundField DataField="codigo_pais" HeaderText="codigo_pais" SortExpression="codigo_pais" />
+                               <asp:BoundField DataField="nombre_pais" HeaderText="nombre_pais" SortExpression="nombre_pais" />
+                               <asp:BoundField DataField="ruta_imagen" HeaderText="ruta_imagen" SortExpression="ruta_imagen" />
+                           </Columns>
+                         
                           <HeaderStyle BackColor="#003366" ForeColor="White" />
                       </asp:GridView>
+				      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="sp_getPaises" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
 				  </div>							     	
                        <div>
                           <asp:Button ID="Button1" runat="server" Text="Nuevo" OnClick="Button1_Click" />
