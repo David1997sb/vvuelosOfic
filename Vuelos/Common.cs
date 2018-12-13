@@ -18,6 +18,14 @@ namespace Vuelos
             return uuid;
         }
 
+        public string getUserName()
+        {
+            Guid guid = Guid.NewGuid();
+            byte[] bytes = guid.ToByteArray();
+            string encoded = Convert.ToBase64String(bytes);
+            string uuid = encoded.Substring(0, 7);
+            return uuid;
+        }
         public string getHour()
         {
             String hourMinute;

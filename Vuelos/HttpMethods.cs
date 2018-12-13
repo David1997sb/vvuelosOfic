@@ -152,5 +152,24 @@ namespace Vuelos
             return value;
             
         }
+
+        public bool getUserNameAvailable(string user)
+        {
+            bool value = false;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:53069/api/createAccount/isUserNameAvaialable?user=" + user);
+            request.KeepAlive = false;
+            request.Method = "GET";
+            //request.ContentType = "application/x-www-form-urlencoded";
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            string myResponse = "";
+            using (System.IO.StreamReader sr = new System.IO.StreamReader(response.GetResponseStream()))
+            {
+                myResponse = sr.ReadToEnd();
+            }
+            value = bool.Parse(myResponse);
+            return value;
+
+        }
     }
 }

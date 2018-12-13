@@ -19,6 +19,7 @@ namespace Vuelos
         Encriptioner encript = new Encriptioner();
         Common common = new Common();
         DataBaseManagement dbm = new DataBaseManagement();
+        HttpMethods http = new HttpMethods();
         protected void Page_Load(object sender, EventArgs e)
         {
             conn.ConnectionString = WebConfigurationManager.AppSettings["connectionStringServicios"];
@@ -51,5 +52,18 @@ namespace Vuelos
                 var x = se.ToString();
             }
             }
+
+        protected void btnVerificar_Click(object sender, EventArgs e)
+        {
+            List<string> posibleNames = new List<string>();
+            bool isAvailable = http.getUserNameAvailable(txtNombreUsuario.Text);
+            if (!isAvailable)
+            {
+                for (int i = 0; i < 3 ; i++)
+                {
+                    posibleNames.Add(common.getUserName());
+                }
+            }
+        }
     }
 }

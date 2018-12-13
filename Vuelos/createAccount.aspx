@@ -61,7 +61,7 @@
 							<div class="checkbox">                           
                             <label class="pull-right">
 
-                            <asp:Button ID="btnVerificar" runat="server" Text="Verificar Usuario" BackColor="White" ForeColor="#0066FF" Height="29px" Width="133px" />
+                            <asp:Button ID="btnVerificar" runat="server" Text="Verificar Usuario" BackColor="White" ForeColor="#0066FF" Height="29px" Width="133px" OnClick="btnVerificar_Click" />
 							</label>
                         </div>
                         </div>
