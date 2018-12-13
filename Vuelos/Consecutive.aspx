@@ -133,14 +133,17 @@
                     <div class="card">                           
                         <div class="card-body">
                   				 
-				      <asp:GridView ID="GridView1" runat="server" Width="532px">
+				      <asp:GridView ID="GridView1" runat="server" Width="532px" runnat="server" AutoGenerateColumns="False" AutoGenerateSelectButton="True" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                           <Columns>
-                              <asp:ImageField>
-                              </asp:ImageField>
-                              <asp:HyperLinkField HeaderText="Editar" NavigateUrl="EditConsecutive.aspx" Text="Editar" />
+                              <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" SortExpression="id" InsertVisible="False" />
+                                <asp:BoundField DataField="consecutivo" HeaderText="consecutivo" SortExpression="consecutivo" />
+                              <asp:BoundField DataField="prefijo" HeaderText="prefijo" SortExpression="prefijo" />
+                              <asp:BoundField DataField="rango_inicial" HeaderText="rango_inicial" SortExpression="rango_inicial" />
+                              <asp:BoundField DataField="rango_final" HeaderText="rango_final" SortExpression="rango_final" />
                           </Columns>
                           <HeaderStyle BackColor="#003366" ForeColor="White" />
                       </asp:GridView>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="sp_valores_consecutivo" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                        <div>
                           <asp:Button ID="Button1" runat="server" Text="Nuevo" OnClick="Button1_Click" />
                       </div>				  				 

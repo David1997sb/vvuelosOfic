@@ -22,6 +22,15 @@ namespace Vuelos {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// lbl_desc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_desc;
+        
+        /// <summary>
         /// dropdown control.
         /// </summary>
         /// <remarks>
@@ -56,15 +65,6 @@ namespace Vuelos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListItem pais;
-        
-        /// <summary>
-        /// lbl_desc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_desc;
         
         /// <summary>
         /// lbl_consecutivo control.

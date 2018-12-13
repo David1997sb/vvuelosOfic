@@ -8,6 +8,15 @@ namespace Vuelos
     public class Common
     {
         private DateTime today;
+        
+        public string generateBookId()
+        {
+            Guid guid = Guid.NewGuid();
+            byte[] bytes = guid.ToByteArray();
+            string encoded = Convert.ToBase64String(bytes);
+            string uuid = encoded.Substring(0, 7);
+            return uuid;
+        }
 
         public string getHour()
         {

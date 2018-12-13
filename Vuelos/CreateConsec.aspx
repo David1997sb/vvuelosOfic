@@ -40,6 +40,10 @@
 
                     <div class="card-body card-block">
                         <form method="post" enctype="multipart/form-data" class="form-horizontal">
+                                
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <asp:Label ID="lbl_desc" runat="server" Text="Descripción" for="select" class=" form-control-label"></asp:Label>
                                 <asp:DropDownList ID="dropdown" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown"> 
                                     <asp:ListItem Selected="True" class="dropdown-item">Selccion un tipo de consecutivo</asp:ListItem>
                                     <asp:ListItem class="dropdown-item" ID="aero">aerolinea</asp:ListItem>
@@ -47,9 +51,6 @@
                                     <asp:ListItem class="dropdown-item" id="pais">pais</asp:ListItem>                                                                        
                                     
                                 </asp:DropDownList>
-                            <div class="row form-group">
-                                <div class="col col-md-3">
-                                    <asp:Label ID="lbl_desc" runat="server" Text="Descripción" for="select" class=" form-control-label"></asp:Label>
                                 </div>
                             </div>
 

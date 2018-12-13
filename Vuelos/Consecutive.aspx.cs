@@ -13,7 +13,6 @@ namespace Vuelos
     public partial class Consecutive : System.Web.UI.Page
     {
         SqlConnection conn = new SqlConnection();
-        String sql;
         SqlCommand cmd;
         SqlDataReader rs;
         SqlDataAdapter adapter;
@@ -31,13 +30,23 @@ namespace Vuelos
                 adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(ds);
                 conn.Close();
-                GridView1.DataSource = ds.Tables[0];
-                GridView1.DataBind();
+                //GridView1.DataSource = ds.Tables[0];
+                //GridView1.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("CreateConsec.aspx");
+        }
+        protected void grd_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow gr = GridView1.SelectedRow;
+            Response.Redirect("EditConsecutive.aspx?id=" + gr.Cells[1].Text + "&consecutivo=" + gr.Cells[2].Text+ "&prefijo=" + gr.Cells[3].Text+ "&rangoIni="+gr.Cells[4].Text+ "&rangoFin="+ gr.Cells[5].Text);
         }
     }
 }

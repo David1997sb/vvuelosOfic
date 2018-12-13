@@ -133,5 +133,24 @@ namespace Vuelos
             string result = responseString.ToString();
             return result;
         }
+
+        public  bool getUserCardAsync(string user, string cardNum)
+        {
+            bool value = false;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:53069/api/pago/hasCard/?user="+user+"&cardNumber="+cardNum);
+            request.KeepAlive = false;
+            request.Method = "GET";
+            //request.ContentType = "application/x-www-form-urlencoded";
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            string myResponse = "";
+            using (System.IO.StreamReader sr = new System.IO.StreamReader(response.GetResponseStream()))
+            {
+                myResponse = sr.ReadToEnd();
+            }
+            value = bool.Parse(myResponse);
+            return value;
+            
+        }
     }
 }
