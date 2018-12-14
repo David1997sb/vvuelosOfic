@@ -4,6 +4,8 @@
 
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
+    
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>V-Vuelos</title>
@@ -68,7 +70,9 @@
 						<div class="form-group">
                             <label>Contraseña</label>
                             <asp:TextBox ID="txtPassword" runat="server" CssClass ="input50" type = "password"  Width="480px" ></asp:TextBox>
-                        </div>                        
+                        </div>   
+                        <br />
+                        <div class="g-recaptcha" data-sitekey="6Le3gX8UAAAAAChw78Q5MdAREjlE8tJsKgjMxeLc"></div>
                         <asp:Button ID="btnCrear" runat="server" href="#" class="login100-form-btn" Text="CREAR CUENTA" BackColor="#009933" ForeColor="White" Height="51px" Width="480px" OnClick="btnCrear_Click" /></asp:Button>
                         <div class="social-login-content">                            
                         </div>                       

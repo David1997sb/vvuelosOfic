@@ -66,5 +66,10 @@ namespace Vuelos
             div2.Attributes.Add("style", "display:block");
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

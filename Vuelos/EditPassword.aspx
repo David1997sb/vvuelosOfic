@@ -26,7 +26,14 @@
 
 </head>
 <body runat ="server">
+
     <div class="sufee-login d-flex align-content-center flex-wrap">
+       
+        <script>
+        function setInter(){
+            setInterval(function(){ alert("Hello"); }, 3000);
+        }
+        </script>
         <div class="container">
             <div class="login-content">
                 <div class="login-form">

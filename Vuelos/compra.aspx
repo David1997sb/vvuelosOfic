@@ -19,7 +19,7 @@
             <asp:Label ID="txt_total" runat="server" Text=""></asp:Label>
            
             <br/>
-                    <asp:CheckBox ID="CheckBox_TarjetasUsuario" runat="server" Text="Tarjetas actuales" OnCheckedChanged="CheckBox_TarjetasUsuario_CheckedChanged" AutoPostBack="true"/>
+                    <asp:CheckBox ID="CheckBox_TarjetasUsuario" runat="server" Text="Tarjeta credito/debito" OnCheckedChanged="CheckBox_TarjetasUsuario_CheckedChanged" AutoPostBack="true"/>
                     <br/>
                     <asp:CheckBox ID="CheckBox1" runat="server" Text="Nueva tarjeta" OnCheckedChanged="CheckBox1_CheckedChanged" AutoPostBack="true"/>
                 <br />
@@ -57,7 +57,11 @@
                                     <asp:ListItem class="dropdown-item" ID="aero">Visa</asp:ListItem>
                                     <asp:ListItem class="dropdown-item" id="puerta">Mastercard</asp:ListItem>
                     </asp:DropDownList>
+                            <br />
+                            <asp:CheckBox ID="CheckBox2" runat="server" text="Desea guardar esta tarjeta para futuras compras?"/>
                 </div>
+            <br />
+            <asp:Button ID="Button1" runat="server" Text="Procesar" OnClick="Button1_Click" />
         </div>
     </form>
 </body>
