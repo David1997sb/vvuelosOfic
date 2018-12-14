@@ -63,6 +63,8 @@ namespace Vuelos
                 {
                     posibleNames.Add(common.getUserName());
                 }
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Notify", "alert('Este usuario no se encuentra disponible se le sugieren los siguientes:" + posibleNames[0] + " ," + posibleNames[1] + " ," + posibleNames[2] + "');", true);
+
             }
         }
     }

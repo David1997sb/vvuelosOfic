@@ -130,6 +130,7 @@
     <Compile Include="APItest.aspx.designer.cs">
       <DependentUpon>APItest.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CaptchaValidate.cs" />
     <Compile Include="compra.aspx.cs">
       <DependentUpon>compra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
