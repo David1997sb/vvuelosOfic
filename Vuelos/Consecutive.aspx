@@ -2,7 +2,7 @@
 
 	<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <!-- start banner Area -->
+        <!-- start banner Area -->
     <section class="banner-area relative about-banner" id="home">
         <div class="overlay overlay-bg"></div>
         <div class="container">
@@ -49,7 +49,7 @@
 										  </asp:GridView>
                                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="sp_valores_consecutivo" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                                             <div>
-                                                <asp:Button ID="Button1" runat="server" Text="Nuevo" />	
+                                                <asp:Button ID="Button1" runat="server" Text="Nuevo" OnClick="Button1_Click1" />	
                                             </div>
                                         </div>
                                     </div>

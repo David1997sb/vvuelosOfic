@@ -59,8 +59,8 @@
                             </li>
                             <li class="menu-has-children"><a href ="#">Administrador</a>
                                 <ul>
-                                    <li><a href="EditCountry.aspx">Paises</a></li>
-                                    <li><a href="EditAirline.aspx">Aerolineas</a></li>
+                                    <li><a href="Countries.aspx">Paises</a></li>
+                                    <li><a href="Airlines.aspx">Aerolineas</a></li>
                                     <li><a href="Errors.aspx">Errores</a></li>
                                     <li><a href="bita.aspx">Bitácora</a></li>
                                     <li><a href="Consecutive.aspx">Consecutivos</a></li>

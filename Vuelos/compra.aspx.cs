@@ -17,6 +17,12 @@ namespace Vuelos
         DataBaseManagement management = new DataBaseManagement();
         List<string> encriptedCards = new List<string>();
         HttpMethods methods = new HttpMethods();
+        DataBaseManagement manage = new DataBaseManagement();
+        Common common = new Common();
+        List<Int32> cards = new List<int>();
+        List<Int32> oldCards = new List<int>();
+
+
         int balance = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,12 +35,35 @@ namespace Vuelos
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@user", SqlDbType.VarChar).Value = "dsalas";
             conn.Close();
-            List<Int32> cards = management.getCardsByUser(cmd, conn);
+            cards = management.getCardsByUser(cmd, conn);
             getLastCardDigits(cards);
+            cmd = new SqlCommand("getAllcards", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = "dsalas";
+            conn.Close();
+            oldCards = management.getAllCardsByUser(cmd, conn);
+            insertDataIntoDropDown();
+            conn.ConnectionString = WebConfigurationManager.AppSettings["connectionStringServicios"];
+
 
         }
 
 
+        public string getUserEcriptedCard(string cardNumb)
+        {
+            string cardNumber = "";
+            string number = cardNumb.Replace("x", "").ToString();
+            for (int i = 0; i < oldCards.Count; i++)
+            {
+                var a = oldCards[i].ToString();
+
+                if (oldCards[i].ToString().Contains(number))
+                {
+                    cardNumber =oldCards[i].ToString();
+                }
+            }
+            return cardNumber;
+        }
         public void getLastCardDigits(List<Int32> cardNums)
         {
             string mystring = "";
@@ -69,10 +98,7 @@ namespace Vuelos
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
+       
         private int getUserBalance(string user, string card)
         {
             int currentBalance = Convert.ToInt32(methods.getUserBalance(user, card));
@@ -91,6 +117,85 @@ namespace Vuelos
 
         }
 
+        public int getTickets(int consecutivo)
+        {
+            conn.Open();
+            cmd = new SqlCommand("sp_getAvailableTickets", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@consecutivo", SqlDbType.Int).Value = consecutivo;
+            conn.Close();
+            int value = Convert.ToInt32(manage.getColumValue1(cmd, conn));
+            return value;
+        }
+
+        public void setTicketVuelo(int consecutivo)
+        {
+            conn.Open();
+            cmd = new SqlCommand("sp_updateTickets", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@consecutivo", SqlDbType.Int).Value = consecutivo;
+            cmd.Parameters.Add("@cantidadDisponible", SqlDbType.Int).Value = consecutivo;
+            cmd.ExecuteNonQuery();
+            conn.Close();
+           
+        }
+
+        public int getPriceByTicket(int consecutivo)
+        {
+            conn.Open();
+            cmd = new SqlCommand("sp_getPriceByTicket", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@consecutivo", SqlDbType.Int).Value = consecutivo;
+            conn.Close();
+            int price = Convert.ToInt32(manage.getColumValue1(cmd, conn));
+            return price;
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (CheckBox2.Checked)
+            {
+
+                methods.postUserAccount(Convert.ToInt32(txt_numTarjeta.Text),Convert.ToInt32(txt_mesExp.Text),Convert.ToInt32(txt_anoExp.Text),Convert.ToInt32(txt_ccv.Text),tipoTarjeta.SelectedValue.ToString(),"dsalas",tipoTarjeta.SelectedValue.ToString());
+                int balance = Convert.ToInt32(methods.getUserBalance("dsalas", txt_numTarjeta.Text));
+                int price = getPriceByTicket(1);
+                int total =  Convert.ToInt32(txt_cantBol.Text) * price;
+                string type = methods.getCardType(Convert.ToInt32(txt_numTarjeta.Text));
+                if (type.Trim().Contains("Debito"))
+                {
+                    int newTotal = balance - total;
+                    methods.updateUserBalance("dsalas", txt_numTarjeta.Text, total);
+
+                }
+                else
+                {
+                    int newTotal = balance + total;
+                    methods.updateUserBalance("dsalas", txt_numTarjeta.Text, total);
+
+                }
+
+            }
+            else
+            {
+                string card = getUserEcriptedCard(DropDownList1.SelectedValue.ToString());
+                int balance = Convert.ToInt32(methods.getUserBalance("dsalas", card));
+                int price = getPriceByTicket(1);
+                int total = Convert.ToInt32(txt_cantBol.Text) * price;
+                string type = methods.getCardType(Convert.ToInt32(card));
+                if (type.Trim().Contains("Debito"))
+                {
+                    int newTotal = balance - total;
+                    methods.updateUserBalance("dsalas", txt_numTarjeta.Text, total);
+
+                }
+                else
+                {
+                    int newTotal = balance + total;
+                    methods.updateUserBalance("dsalas", txt_numTarjeta.Text, total);
+
+                }
+            }
+        }
 
     }
 }

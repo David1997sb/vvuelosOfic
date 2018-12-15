@@ -82,7 +82,7 @@ namespace Vuelos
             return result;
         }
 
-        public string postUserAccount(int numeroTarjeta, int mesExp, int anoExp, int cvv, string tipo, string usuario)
+        public string postUserAccount(int numeroTarjeta, int mesExp, int anoExp, int cvv, string tipo, string usuario,string tipoTarjeta)
         {
             var responseString = "";
             using (var client = new WebClient())
@@ -94,25 +94,28 @@ namespace Vuelos
                 values["cvv"] = cvv.ToString();
                 values["tipo"] = tipo;
                 values["usuario"] = usuario;
+                values["tipoTarjeta"] = tipoTarjeta;
 
-                    var response = client.UploadValues("http://localhost:53069/api/pago/creatAccount", values);
+                var response = client.UploadValues("http://localhost:53069/api/pago/creatAccount", values);
 
                 responseString = Encoding.Default.GetString(response);
             }
             string result = responseString.ToString();
             return result;
         }
-        public string postReservation(string user, string tipo, int monto, string bookId)
+        public string postReservation(string user, string tipo, int monto, string bookId, string reserva)
         {
             var responseString = "";
             using (var client = new WebClient())
             {
                 var values = new NameValueCollection();
-                values["usuario"] = user;
+               // values["usuario"] = user;
                 values["monto"] = monto.ToString();
                 values["tipo"] = tipo;
-                values["bookId"] = tipo;
-                var response = client.UploadValues("http://localhost:53069/api/pago/bookId", values);
+                values["bookId"] = bookId;
+                values["reserva"] = reserva;
+
+                var response = client.UploadValues("http://localhost:53069/api/pago/postReservation", values);
                 responseString = Encoding.Default.GetString(response);
             }
             string result = responseString.ToString();
@@ -171,5 +174,25 @@ namespace Vuelos
             return value;
 
         }
+
+        public string getCardType(int card)
+        {
+            string value = "";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:53069/api/pago/getCardType/?cardNumber=" + card);
+            request.KeepAlive = false;
+            request.Method = "GET";
+            //request.ContentType = "application/x-www-form-urlencoded";
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            string myResponse = "";
+            using (System.IO.StreamReader sr = new System.IO.StreamReader(response.GetResponseStream()))
+            {
+                myResponse = sr.ReadToEnd();
+            }
+            value = myResponse.ToString();
+            return value;
+
+        }
+
     }
 }

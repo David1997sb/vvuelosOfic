@@ -40,7 +40,7 @@
                                                 <asp:Label ID="Label2" runat="server" Text="Cantidad de boletos"></asp:Label>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txt_cantBol" runat="server"></asp:TextBox>
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>
@@ -100,7 +100,7 @@
                                                 <asp:Label ID="Label3" runat="server" Text="Numero Tarjeta"></asp:Label>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txt_numTarjeta" runat="server"></asp:TextBox>
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>
@@ -109,16 +109,25 @@
                                                 <asp:Label ID="Label5" runat="server" Text="CCV"></asp:Label>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txt_ccv" runat="server"></asp:TextBox>
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>
                                         <tr>
                                             <td class="text-right" style="width: 230px">
-                                                <asp:Label ID="Label6" runat="server" Text="Fecha de expiración"></asp:Label>
+                                                <asp:Label ID="Label6" runat="server" Text="Mes de expiración"></asp:Label>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txt_mesExp" runat="server"></asp:TextBox>
+                                            </td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                             <tr>
+                                            <td class="text-right" style="width: 230px">
+                                                <asp:Label ID="Label8" runat="server" Text="Año de expiración"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="txt_anoExp" runat="server"></asp:TextBox>
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>
@@ -134,22 +143,24 @@
                                         <tr>
                                             <td style="width: 230px">&nbsp;</td>
                                             <td>
-                                                <asp:DropDownList ID="DropDownList3" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                                <asp:DropDownList ID="tipoTarjeta" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
                                                     <asp:ListItem Selected="True" class="dropdown-item">Seleccione el tipo de tarjeta</asp:ListItem>
-                                                    <asp:ListItem class="dropdown-item" ID="aero">Visa</asp:ListItem>
-                                                    <asp:ListItem class="dropdown-item" id="puerta">Mastercard</asp:ListItem>
+                                                    <asp:ListItem class="dropdown-item" ID="aero">Credito</asp:ListItem>
+                                                    <asp:ListItem class="dropdown-item" id="puerta">Debito</asp:ListItem>
                                                 </asp:DropDownList>
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>
                                         <tr>
                                             <td style="width: 230px">&nbsp;</td>
-                                            <td>&nbsp;</td>
+                                            <td>
+                                                <asp:CheckBox ID="CheckBox2" runat="server" Text="Desea guardar esta tarjeta?" /></td>
                                             <td>&nbsp;</td>
                                         </tr>
                                         <tr>
                                             <td style="width: 230px">&nbsp;</td>
-                                            <td>&nbsp;</td>
+                                            <td>
+                                                <asp:Button ID="Button1" runat="server" Text="Comprar" OnClick="Button1_Click" /></td>
                                             <td>&nbsp;</td>
                                         </tr>
 									</div>

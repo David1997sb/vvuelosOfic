@@ -56,7 +56,7 @@
 				      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="sp_getPaises" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                                                 </div>
                                                 <div>
-                                                    <asp:Button ID="Button1" runat="server" Text="Nuevo" />
+                                                    <asp:Button ID="Button1" runat="server" Text="Nuevo" OnClick="Button1_Click1" />
                                                 </div>
                                             </div>
                                         </div>

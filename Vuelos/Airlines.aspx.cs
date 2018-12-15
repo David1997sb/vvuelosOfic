@@ -36,5 +36,10 @@ namespace Vuelos
             GridViewRow gr = GridView1.SelectedRow;
             Response.Redirect("EditAirline.aspx?consecutivo=" + gr.Cells[1].Text + "&codAero=" + gr.Cells[2].Text + "&nombreAgencia=" + gr.Cells[3].Text + "&imagen=" + gr.Cells[4].Text);
         }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("AddAirline.aspx");
+        }
     }
 }

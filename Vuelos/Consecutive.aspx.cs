@@ -50,5 +50,10 @@ namespace Vuelos
 
             Response.Redirect("EditConsecutive.aspx?id=" + gr.Cells[1].Text + "&consecutivo=" + gr.Cells[2].Text+ "&prefijo=" + gr.Cells[3].Text+ "&rangoIni="+gr.Cells[4].Text+ "&rangoFin="+ gr.Cells[5].Text);
         }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateConsec.aspx");
+        }
     }
 }

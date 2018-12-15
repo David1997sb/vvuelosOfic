@@ -54,7 +54,7 @@
 				  </div>
                                             </div>
                                             <div>
-                                                <asp:Button ID="Button1" runat="server" Text="Nuevo" />
+                                                <asp:Button ID="Button1" runat="server" Text="Nuevo" OnClick="Button1_Click1" />
                                             </div>
                                         </div>
                                     </div>

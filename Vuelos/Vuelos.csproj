@@ -97,6 +97,8 @@
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="PuertaEntrada.aspx" />
+    <Content Include="puertasSalida.aspx" />
     <Content Include="reserva.aspx" />
     <Content Include="userAuthentication.js" />
     <Content Include="Web.config" />
@@ -272,6 +274,20 @@
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PuertaEntrada.aspx.cs">
+      <DependentUpon>PuertaEntrada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PuertaEntrada.aspx.designer.cs">
+      <DependentUpon>PuertaEntrada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="puertasSalida.aspx.cs">
+      <DependentUpon>puertasSalida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="puertasSalida.aspx.designer.cs">
+      <DependentUpon>puertasSalida.aspx</DependentUpon>
+    </Compile>
     <Compile Include="reserva.aspx.cs">
       <DependentUpon>reserva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
