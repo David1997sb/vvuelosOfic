@@ -42,7 +42,9 @@ namespace Vuelos
                 {
                     var z = "exito";
                     Session["usserLogged"] = txtUser.Text;
-                    Response.Redirect("index.aspx");
+
+                    string nextUrl = Session["buytUrl"].ToString();
+                    Response.Redirect(nextUrl);
                 }
                 else
                 {

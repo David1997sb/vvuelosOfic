@@ -18,5 +18,18 @@ namespace Vuelos
         {
             Response.Redirect("login.aspx");
         }
+
+        protected void btn_compra1_Click(object sender, EventArgs e)
+        {
+            Session["buytUrl"] = "compra.aspx?destino=indonesia&consecutivo=3";
+            Response.Redirect("login.aspx");
+        }
+
+        protected void btn_reserva1_Click(object sender, EventArgs e)
+        {
+            Session["renttUrl"] = "reserva.aspx?destino=indonesia&consecutivo=3";
+            Response.Redirect("login.aspx");
+
+        }
     }
 }

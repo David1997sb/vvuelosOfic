@@ -31,7 +31,7 @@
                                                 <asp:Label ID="Label1" runat="server" Text="Destino"></asp:Label>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txt_destino" runat="server"></asp:TextBox>
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>

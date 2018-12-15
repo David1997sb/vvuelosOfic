@@ -108,6 +108,10 @@
                             <p>
                                 Probablemente la has visto en el fondo de innumerables películas de guerra, sin embargo para lo que debes estar preparado es para la increíble belleza de Vietnam.								
                             </p>
+                            <div>
+                                <asp:Button ID="btn_compra1" CssClass ="btn-success" runat="server" Text="Comprar" OnClick="btn_compra1_Click" />
+                                <asp:Button ID="btn_reserva1" CssClass="btn-info" runat="server" Text="Reservar" OnClick="btn_reserva1_Click" />
+                            </div>
                         </div>
                     </div>
                     <div class="single-popular-carusel">
@@ -134,6 +138,10 @@
                             <p>
                                 Quizás es el destino más caro del sudeste, pero vale la pena, es como viajar al futuro. Singapur es un país cosmopolita que se ha convertido en uno de los principales centros económicos del mundo.
                             </p>
+                            <div>
+                                <asp:Button ID="btn_compra2" CssClass ="btn-success" runat="server" Text="Comprar" />
+                                <asp:Button ID="btn_reserva2" CssClass="btn-info" runat="server" Text="Reservar" />
+                            </div>
                         </div>
                     </div>
                     <div class="single-popular-carusel">
@@ -161,6 +169,10 @@
                             <p>
                                 Indonesia ofece interesantes y animadas ciudades como Yogyakarta, así como pequeños pueblos en donde el ritmo de vida es más lento. Tiene playas vírgenes, aguas cristalinas e imponentes volcanes
                             </p>
+                            <div>
+                                <asp:Button ID="btn_compra3" CssClass ="btn-success" runat="server" Text="Comprar" />
+                                <asp:Button ID="btn_reserva3" CssClass="btn-info" runat="server" Text="Reservar" />
+                            </div>
                         </div>
                     </div>
                     <div class="single-popular-carusel">
@@ -188,6 +200,10 @@
                             <p>
                                 Siendo una ciudad que se encuentra justo en la frontera de Europa, su estilo presenta una mezcla de bizantino, norteafricano y europeo, con mercados callejeros ubicados alrededor de majestuosas iglesias barrocas.
                             </p>
+                            <div>
+                                <asp:Button ID="btn_compra4" CssClass ="btn-success" runat="server" Text="Comprar" />
+                                <asp:Button ID="btn_reserva4" CssClass="btn-info" runat="server" Text="Reservar" />
+                            </div>
                         </div>
                     </div>
                     <div class="single-popular-carusel">
@@ -215,6 +231,10 @@
                             <p>
                                 No dejes que los casi mil años de historia te engañen. Esta es una ciudad construida para el futuro. Con alrededor de 130.000 estudiantes, es la ciudad más joven de Polonia y, como tal, una de las más animadas.
                             </p>
+                            <div>
+                                <asp:Button ID="btn_compra5" CssClass ="btn-success" runat="server" Text="Comprar" />
+                                <asp:Button ID="btn_reserva5" CssClass="btn-info" runat="server" Text="Reservar" />
+                            </div>
                         </div>
                     </div>
                     <div class="single-popular-carusel">
@@ -242,6 +262,10 @@
                             <p>
                                 Hay más de 3.200 objetos cotidianos que permiten ilustrar cómo era la vida bajo el régimen comunista, incluyendo los medios que utilizaban para la comunicación, libros, revistas, camisetas de fútbol, obras de arte y mucho más.
                             </p>
+                            <div>
+                                <asp:Button ID="btn_compra6" CssClass ="btn-success" runat="server" Text="Comprar" />
+                                <asp:Button ID="btn_reserva6" CssClass="btn-info" runat="server" Text="Reservar" />
+                            </div>
                         </div>
                     </div>
                     <div class="single-popular-carusel">
@@ -268,6 +292,10 @@
                             <p>
                                 La cordillera, la costa y los paisajes de Chile se han vuelto el destino favorito para turistas de todo el mundo, y esto se vio reflejado en los reconocimientos que se llevó nuestro país en los denominados "Oscar del Turismo".
                             </p>
+                            <div>
+                                <asp:Button ID="btn_compra7" CssClass ="btn-success" runat="server" Text="Comprar" />
+                                <asp:Button ID="btn_reserva7" CssClass="btn-info" runat="server" Text="Reservar" />
+                            </div>
                         </div>
                     </div>
                     <div class="single-popular-carusel">
@@ -295,6 +323,10 @@
                             <p>
                                 ¿Quieres conocer lugares para ir de vacaciones baratas? Pues aquí tienes un país muy barato y con una cultura increíble por descubrir tan alejada a lo que estamos acostumbrados que cada día puede regalarte una nueva sorpresa, es un país enorme y la diferencia de precios entre las regiones está aumentando.
                             </p>
+                            <div>
+                                <asp:Button ID="btn_compra8" CssClass ="btn-success" runat="server" Text="Comprar" />
+                                <asp:Button ID="btn_reserva8" CssClass="btn-info" runat="server" Text="Reservar" />
+                            </div>
                         </div>
                     </div>
                 </div>

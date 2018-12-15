@@ -21,11 +21,14 @@ namespace Vuelos
         Common common = new Common();
         List<Int32> cards = new List<int>();
         List<Int32> oldCards = new List<int>();
-
-
+        int consecutivo = 0;
+        string usuario = "";
         int balance = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            usuario = Session["usserLogged"].ToString();
+            txt_destino.Text = Request.QueryString["destino"].ToString();
+            consecutivo = Convert.ToInt32(Request.QueryString["consecutivo"]);
             myDIV.Attributes.Add("style", "display:none");
             div2.Attributes.Add("style", "display:none");
             conn.ConnectionString = WebConfigurationManager.AppSettings["connectionStringPago"];
@@ -39,7 +42,7 @@ namespace Vuelos
             getLastCardDigits(cards);
             cmd = new SqlCommand("getAllcards", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = "dsalas";
+            cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = usuario;
             conn.Close();
             oldCards = management.getAllCardsByUser(cmd, conn);
             insertDataIntoDropDown();
@@ -156,21 +159,21 @@ namespace Vuelos
             if (CheckBox2.Checked)
             {
 
-                methods.postUserAccount(Convert.ToInt32(txt_numTarjeta.Text),Convert.ToInt32(txt_mesExp.Text),Convert.ToInt32(txt_anoExp.Text),Convert.ToInt32(txt_ccv.Text),tipoTarjeta.SelectedValue.ToString(),"dsalas",tipoTarjeta.SelectedValue.ToString());
-                int balance = Convert.ToInt32(methods.getUserBalance("dsalas", txt_numTarjeta.Text));
+                methods.postUserAccount(Convert.ToInt32(txt_numTarjeta.Text),Convert.ToInt32(txt_mesExp.Text),Convert.ToInt32(txt_anoExp.Text),Convert.ToInt32(txt_ccv.Text),tipoTarjeta.SelectedValue.ToString(),usuario,tipoTarjeta.SelectedValue.ToString());
+                int balance = Convert.ToInt32(methods.getUserBalance(usuario, txt_numTarjeta.Text));
                 int price = getPriceByTicket(1);
                 int total =  Convert.ToInt32(txt_cantBol.Text) * price;
                 string type = methods.getCardType(Convert.ToInt32(txt_numTarjeta.Text));
                 if (type.Trim().Contains("Debito"))
                 {
                     int newTotal = balance - total;
-                    methods.updateUserBalance("dsalas", txt_numTarjeta.Text, total);
+                    methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
 
                 }
                 else
                 {
                     int newTotal = balance + total;
-                    methods.updateUserBalance("dsalas", txt_numTarjeta.Text, total);
+                    methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
 
                 }
 
@@ -178,20 +181,20 @@ namespace Vuelos
             else
             {
                 string card = getUserEcriptedCard(DropDownList1.SelectedValue.ToString());
-                int balance = Convert.ToInt32(methods.getUserBalance("dsalas", card));
+                int balance = Convert.ToInt32(methods.getUserBalance(usuario, card));
                 int price = getPriceByTicket(1);
                 int total = Convert.ToInt32(txt_cantBol.Text) * price;
                 string type = methods.getCardType(Convert.ToInt32(card));
                 if (type.Trim().Contains("Debito"))
                 {
                     int newTotal = balance - total;
-                    methods.updateUserBalance("dsalas", txt_numTarjeta.Text, total);
+                    methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
 
                 }
                 else
                 {
                     int newTotal = balance + total;
-                    methods.updateUserBalance("dsalas", txt_numTarjeta.Text, total);
+                    methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
 
                 }
             }
