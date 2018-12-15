@@ -43,7 +43,7 @@ namespace Vuelos
                     var z = "exito";
                     Session["usserLogged"] = txtUser.Text;
 
-                    string nextUrl = Session["buytUrl"].ToString();
+                    string nextUrl = Session["currentUrl"].ToString();
                     Response.Redirect(nextUrl);
                 }
                 else

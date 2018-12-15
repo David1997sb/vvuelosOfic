@@ -168,12 +168,14 @@ namespace Vuelos
                 {
                     int newTotal = balance - total;
                     methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
+                    txt_total.Text = total.ToString();
 
                 }
                 else
                 {
                     int newTotal = balance + total;
                     methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
+                    txt_total.Text = total.ToString();
 
                 }
 
@@ -184,7 +186,8 @@ namespace Vuelos
                 int balance = Convert.ToInt32(methods.getUserBalance(usuario, card));
                 int price = getPriceByTicket(1);
                 int total = Convert.ToInt32(txt_cantBol.Text) * price;
-                string type = methods.getCardType(Convert.ToInt32(card));
+                txt_total.Text = total.ToString(); 
+                    string type = methods.getCardType(Convert.ToInt32(card));
                 if (type.Trim().Contains("Debito"))
                 {
                     int newTotal = balance - total;

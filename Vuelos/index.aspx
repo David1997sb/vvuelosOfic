@@ -139,8 +139,8 @@
                                 Quizás es el destino más caro del sudeste, pero vale la pena, es como viajar al futuro. Singapur es un país cosmopolita que se ha convertido en uno de los principales centros económicos del mundo.
                             </p>
                             <div>
-                                <asp:Button ID="btn_compra2" CssClass ="btn-success" runat="server" Text="Comprar" />
-                                <asp:Button ID="btn_reserva2" CssClass="btn-info" runat="server" Text="Reservar" />
+                                <asp:Button ID="btn_compra2" CssClass ="btn-success" runat="server" Text="Comprar" OnClick="btn_compra2_Click" />
+                                <asp:Button ID="btn_reserva2" CssClass="btn-info" runat="server" Text="Reservar" OnClick="btn_reserva2_Click" />
                             </div>
                         </div>
                     </div>
@@ -170,8 +170,8 @@
                                 Indonesia ofece interesantes y animadas ciudades como Yogyakarta, así como pequeños pueblos en donde el ritmo de vida es más lento. Tiene playas vírgenes, aguas cristalinas e imponentes volcanes
                             </p>
                             <div>
-                                <asp:Button ID="btn_compra3" CssClass ="btn-success" runat="server" Text="Comprar" />
-                                <asp:Button ID="btn_reserva3" CssClass="btn-info" runat="server" Text="Reservar" />
+                                <asp:Button ID="btn_compra3" CssClass ="btn-success" runat="server" Text="Comprar" OnClick="btn_compra3_Click" />
+                                <asp:Button ID="btn_reserva3" CssClass="btn-info" runat="server" Text="Reservar" OnClick="btn_reserva3_Click" />
                             </div>
                         </div>
                     </div>
@@ -201,8 +201,8 @@
                                 Siendo una ciudad que se encuentra justo en la frontera de Europa, su estilo presenta una mezcla de bizantino, norteafricano y europeo, con mercados callejeros ubicados alrededor de majestuosas iglesias barrocas.
                             </p>
                             <div>
-                                <asp:Button ID="btn_compra4" CssClass ="btn-success" runat="server" Text="Comprar" />
-                                <asp:Button ID="btn_reserva4" CssClass="btn-info" runat="server" Text="Reservar" />
+                                <asp:Button ID="btn_compra4" CssClass ="btn-success" runat="server" Text="Comprar" OnClick="btn_compra4_Click" />
+                                <asp:Button ID="btn_reserva4" CssClass="btn-info" runat="server" Text="Reservar" OnClick="btn_reserva4_Click" />
                             </div>
                         </div>
                     </div>
@@ -232,8 +232,8 @@
                                 No dejes que los casi mil años de historia te engañen. Esta es una ciudad construida para el futuro. Con alrededor de 130.000 estudiantes, es la ciudad más joven de Polonia y, como tal, una de las más animadas.
                             </p>
                             <div>
-                                <asp:Button ID="btn_compra5" CssClass ="btn-success" runat="server" Text="Comprar" />
-                                <asp:Button ID="btn_reserva5" CssClass="btn-info" runat="server" Text="Reservar" />
+                                <asp:Button ID="btn_compra5" CssClass ="btn-success" runat="server" Text="Comprar" OnClick="btn_compra5_Click" />
+                                <asp:Button ID="btn_reserva5" CssClass="btn-info" runat="server" Text="Reservar" OnClick="btn_reserva5_Click" />
                             </div>
                         </div>
                     </div>
