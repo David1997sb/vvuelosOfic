@@ -33,7 +33,7 @@ namespace Vuelos
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow gr = GridView2.SelectedRow;
+            GridViewRow gr = GridView1.SelectedRow;
             Response.Redirect("EditAirline.aspx?consecutivo=" + gr.Cells[1].Text + "&codAero=" + gr.Cells[2].Text + "&nombreAgencia=" + gr.Cells[3].Text + "&imagen=" + gr.Cells[4].Text);
         }
     }

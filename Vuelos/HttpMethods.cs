@@ -42,7 +42,7 @@ namespace Vuelos
 
             var content = new FormUrlEncodedContent(values);
 
-            var response = await client.PostAsync("http://localhost:53069/api/login/getUserAuthentication", content);
+            var response = await client.PostAsync("http://localhost:53069/api/pago/getUserAuthentication", content);
 
             var responseString = await response.Content.ReadAsStringAsync();
         }
@@ -56,7 +56,7 @@ namespace Vuelos
                 values["usuario"] = user;
                 values["num_tarjeta"] = numeroTarjeta;
 
-                var response = client.UploadValues("http://localhost:53069/api/login/getUserBalance", values);
+                var response = client.UploadValues("http://localhost:53069/api/pago/getUserBalance", values);
 
                 responseString = Encoding.Default.GetString(response);
             }
@@ -74,7 +74,7 @@ namespace Vuelos
                 values["num_tarjeta"] = numeroTarjeta;
                 values["monto"] = monto.ToString();
 
-                var response = client.UploadValues("http://localhost:53069/api/login/updateBalance", values);
+                var response = client.UploadValues("http://localhost:53069/api/pago/updateBalance", values);
 
                 responseString = Encoding.Default.GetString(response);
             }
@@ -95,7 +95,7 @@ namespace Vuelos
                 values["tipo"] = tipo;
                 values["usuario"] = usuario;
 
-                    var response = client.UploadValues("http://localhost:53069/api/login/creatAccount", values);
+                    var response = client.UploadValues("http://localhost:53069/api/pago/creatAccount", values);
 
                 responseString = Encoding.Default.GetString(response);
             }
@@ -112,7 +112,7 @@ namespace Vuelos
                 values["monto"] = monto.ToString();
                 values["tipo"] = tipo;
                 values["bookId"] = tipo;
-                var response = client.UploadValues("http://localhost:53069/api/login/bookId", values);
+                var response = client.UploadValues("http://localhost:53069/api/pago/bookId", values);
                 responseString = Encoding.Default.GetString(response);
             }
             string result = responseString.ToString();
@@ -127,7 +127,7 @@ namespace Vuelos
                 var values = new NameValueCollection();
                 values["usuario"] = user;
                 values["num_tarjeta"] = numCuenta;
-                var response = client.UploadValues("http://localhost:53069/api/login/getEasyPayUser", values);
+                var response = client.UploadValues("http://localhost:53069/api/pago/getEasyPayUser", values);
                 responseString = Encoding.Default.GetString(response);
             }
             string result = responseString.ToString();

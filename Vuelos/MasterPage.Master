@@ -1,0 +1,150 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Vuelos.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="author" content="colorlib" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <title>V-Vuelos</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet" />
+    <link rel="stylesheet" href="css/linearicons.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/nice-select.css" />
+    <link rel="shortcut icon" href="img/fav.png" />
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <style type="text/css">
+        .auto-style2 {
+            width: 112px;
+            height: 28px;
+        }
+
+        .auto-style3 {
+            width: 100px;
+            height: 170px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- HEADER  -->
+        <header id="header">
+            <div class="container main-menu">
+                <div class="row align-items-center justify-content-between d-flex">
+                    <div id="logo">
+                        <a href="index">
+                            <img src="img/logo.png" alt="" title="" class="auto-style2" /></a>
+                    </div>
+                    <nav id="nav-menu-container">
+                        <ul class="nav-menu">
+                            <li><a href="index.aspx">Inicio</a></li>
+                            <li><a href="Countries.aspx">Paises</a></li>
+                            <li><a href="Airlines.aspx">Aerolineas</a></li>
+                            <li class="menu-has-children"><a href="AirportDoors.aspx">Aeropuertos</a>
+                                <ul>
+                                    <li><a href="Flights.aspx">Vuelos</a></li>
+                                    <li><a href="Doors.aspx">Puertas</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-has-children"><a href ="#">Administrador</a>
+                                <ul>
+                                    <li><a href="EditCountry.aspx">Paises</a></li>
+                                    <li><a href="EditAirline.aspx">Aerolineas</a></li>
+                                    <li><a href="Errors.aspx">Errores</a></li>
+                                    <li><a href="bita.aspx">Bitácora</a></li>
+                                    <li><a href="Consecutive.aspx">Consecutivos</a></li>
+                                    <li class="menu-has-children"><a href="AirportDoors.aspx">Aeropuertos</a>
+                                        <ul>
+                                            <li><a href="Flights.aspx">Vuelos</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-has-children"><a href="#">Usuarios</a>
+                                        <ul>
+                                            <li><a href="createAccount.aspx">Crear usuario</a></li>
+                                            <li><a href="#">Ver lista de usuarios</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- #nav-menu-container -->
+                </div>
+            </div>
+        </header>
+        <!-- HEADER -->
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Start login Area -->
+        <section class="cta-two-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 cta-left">
+                        <h1>Inicie sesión para descubrir nuevas funciones.</h1>
+                    </div>
+                    <div class="col-lg-4 cta-right">
+                        <asp:Button ID="btn_inicioSesion" class="primary-btn wh" runat="server" Text="Iniciar Sesión" OnClick="btn_inicioSesion_Click"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End login Area -->
+
+        <!-- FOOTER -->
+        <footer class="footer-area section-gap">
+            <div class="container">
+                <div class="footer-bottom row align-items-center justify-content-between">
+                    <p class="footer-text m-0 col-lg-6 col-md-12">
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        Todos los derechos reservados | Hecho con <i class="fa fa-heart-o" aria-hidden="true"></i> por estudiantes de <a href="http://www.ulacit.ac.cr/" target="_blank">ULACIT</a>. Producido por <a href="" target="_blank">D.Salas, K.Araya</a> y  <a href="" target="_blank">A.Martinez.</a>
+                        <div class="col-lg-6 col-sm-12 footer-social">
+                            <img src="img/ulacit.png" />
+                        </div>
+                        <li class="menu-has-children">
+                            <div id="google_translate_element" class="auto-style2">
+                                <script type="text/javascript">
+                                    function googleTranslateElementInit() {
+                                        new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'de,en,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true }, 'google_translate_element');
+                                    }
+                                </script>
+                                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                            </div>
+                        </li>
+                </div>
+            </div>
+        </footer>
+        <!-- FOOTER  -->
+
+    </form>
+
+    <script src="js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <script src="js/easing.min.js"></script>
+    <script src="js/hoverIntent.js"></script>
+    <script src="js/superfish.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.tabs.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

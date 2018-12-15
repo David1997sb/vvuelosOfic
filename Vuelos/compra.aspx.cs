@@ -16,6 +16,8 @@ namespace Vuelos
         DataSet ds = new DataSet();
         DataBaseManagement management = new DataBaseManagement();
         List<string> encriptedCards = new List<string>();
+        HttpMethods methods = new HttpMethods();
+        int balance = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             myDIV.Attributes.Add("style", "display:none");
@@ -71,5 +73,24 @@ namespace Vuelos
         {
 
         }
+        private int getUserBalance(string user, string card)
+        {
+            int currentBalance = Convert.ToInt32(methods.getUserBalance(user, card));
+            return balance;
+
+        }
+        private bool isUserWithMoney(int balance, int total)
+        {
+            bool isWithMoney = false;
+            int totalValue = balance - total;
+            if (totalValue > 0)
+            {
+                isWithMoney = true;
+            }
+            return isWithMoney;
+
+        }
+
+
     }
 }

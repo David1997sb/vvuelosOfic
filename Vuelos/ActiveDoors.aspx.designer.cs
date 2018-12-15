@@ -13,15 +13,6 @@ namespace Vuelos {
     public partial class Active_doors {
         
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
         /// grid_puertasAeropuertos control.
         /// </summary>
         /// <remarks>
@@ -29,14 +20,5 @@ namespace Vuelos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grid_puertasAeropuertos;
-        
-        /// <summary>
-        /// btn_inicioSesion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_inicioSesion;
     }
 }
