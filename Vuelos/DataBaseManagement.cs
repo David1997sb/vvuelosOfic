@@ -18,6 +18,7 @@ namespace Vuelos
         Common common = new Common();
         public void addBitaData(SqlConnection conn,string registryCode, string description, string type, string registryDetail)
         {
+            conn.Open();
             //Ejecuta el stored procedure
             cmd = new SqlCommand("sp_insert_bitaData", conn);
             //Se indica que la variable de tipo command va ser de tipo stored procedure
@@ -27,7 +28,7 @@ namespace Vuelos
             cmd.Parameters.Add("@codigo_registro", SqlDbType.VarChar).Value = registryCode;
             cmd.Parameters.Add("@tipo", SqlDbType.VarChar).Value = type;
             cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = description;
-            cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = HttpContext.Current.Session["usserLogged"];
+            cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = "dsalas";//HttpContext.Current.Session["usserLogged"];
             cmd.Parameters.Add("@detalle", SqlDbType.VarChar).Value = registryDetail;
             //Se ejecuta el query
             int rowsAffected = cmd.ExecuteNonQuery();
@@ -41,7 +42,7 @@ namespace Vuelos
             //Se indica que la variable de tipo command va ser de tipo stored procedure
             cmd.CommandType = CommandType.StoredProcedure;
             //Se agregan los valores de los parametros del stored procedure
-            cmd.Parameters.Add("@user", SqlDbType.VarChar).Value = HttpContext.Current.Session["usserLogged"]; ;
+            cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = HttpContext.Current.Session["usserLogged"]; ;
             cmd.Parameters.Add("@date", SqlDbType.VarChar).Value = common.GetDate();
             cmd.Parameters.Add("@msj_error", SqlDbType.VarChar).Value = errorMsj;
             //Se ejecuta el query
@@ -129,6 +130,7 @@ namespace Vuelos
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@consecutive", SqlDbType.VarChar).Value = consecutive;
             conn.Close();
+            //agregar todos los consecutivos que no tengan valor si no fallan
             int rangoIni = Convert.ToInt32(getColumValue1(cmd, conn));
             int rangoFin = Convert.ToInt32(getColumValue2(cmd, conn));
             int value = common.getRandConsecutiveValue(rangoIni, rangoFin);

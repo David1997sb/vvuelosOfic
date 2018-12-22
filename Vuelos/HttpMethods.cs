@@ -109,11 +109,12 @@ namespace Vuelos
             using (var client = new WebClient())
             {
                 var values = new NameValueCollection();
-               // values["usuario"] = user;
                 values["monto"] = monto.ToString();
                 values["tipo"] = tipo;
                 values["bookId"] = bookId;
                 values["reserva"] = reserva;
+                values["usuario"] = user;
+
 
                 var response = client.UploadValues("http://localhost:53069/api/pago/postReservation", values);
                 responseString = Encoding.Default.GetString(response);

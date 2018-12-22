@@ -29,29 +29,40 @@ namespace Vuelos
         {
             try
             {
-                conn.Open();
-                //Ejecuta el stored procedure
-                cmd = new SqlCommand("sp_create_consecutive", conn);
-                //Se indica que la variable de tipo command va ser de tipo stored procedure
-                cmd.CommandType = CommandType.StoredProcedure;
-                //Se agregan los valores de los parametros del stored procedure
-                //cmd.Parameters.Add("@code", SqlDbType.Int).Value = 9;
-                bool a = isRangeOk();
-                bool b = isCorrectData();
-                if (a == false || b == false)
+                if (areFieldsOk())
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, GetType(),
-            "alertMessage", @"alert('Revise la informacion desplegada')", true);
+                    conn.Open();
+                    //Ejecuta el stored procedure
+                    cmd = new SqlCommand("sp_create_consecutive", conn);
+                    //Se indica que la variable de tipo command va ser de tipo stored procedure
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //Se agregan los valores de los parametros del stored procedure
+                    //cmd.Parameters.Add("@code", SqlDbType.Int).Value = 9;
+                    bool a = isRangeOk();
+                    bool b = isCorrectData();
+                    if (a == false || b == false)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, GetType(),
+                "alertMessage", @"alert('Revise la informacion desplegada')", true);
+                    }
+                    else
+                    {
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                    }
                 }
                 else
                 {
-                    int rowsAffected = cmd.ExecuteNonQuery();
+                    ScriptManager.RegisterClientScriptBlock(this, GetType(),
+                   "alertMessage", @"alert('Revise la informacion desplegada')", true);
 
                 }
+                
             }
             catch (Exception ex)
             {
-                var exx = ex.ToString();
+                ScriptManager.RegisterClientScriptBlock(this, GetType(),
+            "alertMessage", @"alert('Revise la informacion desplegada')", true);
             }
 
         }
@@ -87,9 +98,29 @@ namespace Vuelos
 
         public bool isRangeOk()
         {
-            int initRange = Convert.ToInt32(rangoI_Inpu.Text);
-            int finalRange = Convert.ToInt32(rangoF_Inpu.Text);
-            return initRange < finalRange;
+            bool isOk = true;
+            int initRange;
+            int finalRange;
+            if (rangoI_Inpu.Text=="" && rangoF_Inpu.Text == "")
+            {
+                initRange = 0;
+                finalRange = 0;
+            }
+            else
+            {
+                initRange = Convert.ToInt32(rangoI_Inpu.Text);
+                finalRange = Convert.ToInt32(rangoF_Inpu.Text);
+            }
+             
+            if(initRange==0 && finalRange == 0)
+            {
+                isOk = true;
+            }
+            if (initRange < finalRange || initRange < 0 || finalRange<0)
+            {
+                isOk = false;
+            }
+            return isOk;
 
         }
 
@@ -109,6 +140,24 @@ namespace Vuelos
                 }
             }
 
+        }
+
+        protected void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Consecutive.aspx");
+        }
+
+        public bool areFieldsOk()
+        {
+            bool areOk = true;
+            if(txt_consecutiv.Text==""|| dropdown.SelectedItem.Value== "Selccion un tipo de consecutivo")
+            {
+                ScriptManager.RegisterClientScriptBlock(this, GetType(),
+           "alertMessage", @"alert('Revise la informacion desplegada')", true);
+                areOk = false;
+            }
+
+           return areOk;
         }
     }
 }

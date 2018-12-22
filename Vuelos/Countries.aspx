@@ -48,7 +48,8 @@
                                <asp:BoundField DataField="consecutivo" HeaderText="consecutivo" ReadOnly="True" SortExpression="consecutivo" />
                                <asp:BoundField DataField="codigo_pais" HeaderText="codigo_pais" SortExpression="codigo_pais" />
                                <asp:BoundField DataField="nombre_pais" HeaderText="nombre_pais" SortExpression="nombre_pais" />
-                               <asp:BoundField DataField="ruta_imagen" HeaderText="ruta_imagen" SortExpression="ruta_imagen" />
+                               <asp:ImageField DataImageUrlField="ruta_imagen" HeaderText="Imagen">
+                               </asp:ImageField>
                            </Columns>
                          
                           <HeaderStyle BackColor="#003366" ForeColor="White" />

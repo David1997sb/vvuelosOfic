@@ -30,6 +30,18 @@
 	
 </head>
 <body runat = "server">
+    <div id="fb-root"></div>
+
+								<%-- Script Facebook --%>
+								<script>(function (d, s, id) {
+										var js, fjs = d.getElementsByTagName(s)[0];
+										if (d.getElementById(id)) return;
+										js = d.createElement(s); js.id = id;
+										js.src = 'https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v3.2&appId=317457722197948&autoLogAppEvents=1';
+										fjs.parentNode.insertBefore(js, fjs);
+									}(document, 'script', 'facebook-jssdk'));</script>
+								<%---------------------%>
+                           
 	<div class="auto-style7" ">
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
@@ -59,11 +71,20 @@
                         </div>
                         <div class="g-recaptcha" data-sitekey="6Le3gX8UAAAAAChw78Q5MdAREjlE8tJsKgjMxeLc"></div>
                         <asp:Button ID="btnLogin" runat="server" href="index.aspx" class="login100-form-btn" Text="INICIAR SESIÓN" BackColor="#009933" ForeColor="White" Height="51px" Width="480px" OnClick="btnLogin_Click"/></asp:Button>
-                        <div class="social-login-content">
-                            <div class="social-button">
-                                <asp:Button ID="btnFacebook" runat="server" href="#" class="login100-form-btn" Text="INICIAR SESIÓN CON FACEBOOK" BackColor="#003399" ForeColor="White" Height="51px" Width="480px" /></asp:Button>
-                                <asp:Button ID="btnTwitter" runat="server" href="#" class="login100-form-btn" Text="INICIAR SESIÓN CON TWITTER" BackColor="#0099FF" ForeColor="White" Height="51px" Width="480px" /></asp:Button>
-                            </div>
+                        <div class="social-button">
+                                    <%--<asp:Button ID="btnFacebook" runat="server" href="#" class="login100-form-btn" Text="INICIAR SESIÓN CON FACEBOOK" BackColor="#003399" ForeColor="White" Height="51px" Width="480px" /></asp:Button>--%>
+                                    <%-----------Boton Facebook----------%>
+                                    <div class="fb-login-button" data-width="480" data-max-rows="1"  data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" aria-orientation="horizontal"></div>
+                                    <script>
+                                        function checkLoginState() {
+                                            FB.getLoginStatus(function (response) {
+                                                statusChangeCallback(response);
+                                            });
+                                        }
+                                    </script>
+                                    <%-----------------------------------%>
+                                    <asp:Button ID="btnTwitter" runat="server" href="#" class="login100-form-btn" Text="INICIAR SESIÓN CON TWITTER" BackColor="#0099FF" ForeColor="White" Height="51px" Width="480px" /></asp:Button>                         
+                                </div>z
                         </div>
                         <div class="register-link m-t-15 text-center">						
                             <p>No tiene una cuenta?<a href="createAccount.aspx"> Registrese aquí</a></p>

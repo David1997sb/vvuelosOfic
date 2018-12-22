@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="PuertaEntrada.aspx.cs" Inherits="Vuelos.PuertaEntrada" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <!-- start banner Area -->
     <section class="banner-area relative about-banner" id="home">

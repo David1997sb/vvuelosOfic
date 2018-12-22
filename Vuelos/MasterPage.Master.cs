@@ -11,11 +11,20 @@ namespace Vuelos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrEmpty(Session["usserLogged"] as string))
+            {
+                btn_inicioSesion.Text = "Cerrar sesion";
+            }
+            else
+            {
+                txt_bienvenido.Text = "Bienvenido " + Session["usserLogged"].ToString();
+            }
+            
         }
 
         protected void btn_inicioSesion_Click(object sender, EventArgs e)
         {
+
             Response.Redirect("login.aspx");
         }
     }

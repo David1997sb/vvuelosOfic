@@ -35,15 +35,19 @@
                                                 <strong class="card-title">Países</strong>
                                             </div>
                                             <div class="card-body">
-                                                <asp:GridView ID="grid_puertasAeropuertos" runat="server" Width="650px">
+                                                <asp:GridView ID="grid_puertasAeropuertos" runat="server" Width="650px" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1">
                                                     <Columns>
-                                                        <asp:ImageField>
-                                                        </asp:ImageField>
+                                                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                                                        <asp:BoundField DataField="numero" HeaderText="numero" SortExpression="numero" />
+                                                        <asp:BoundField DataField="detalle" HeaderText="detalle" SortExpression="detalle" />
+                                                        <asp:BoundField DataField="codigo_aerolinea" HeaderText="codigo_aerolinea" SortExpression="codigo_aerolinea" />
+                                                        <asp:BoundField DataField="tipo" HeaderText="tipo" SortExpression="tipo" />
                                                     </Columns>
                                                     <HeaderStyle
                                                         BackColor="#003366"
                                                         ForeColor="White" />
                                                 </asp:GridView>
+                                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="sp_getPuertas" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                                             </div>
                                         </div>
                                     </div>

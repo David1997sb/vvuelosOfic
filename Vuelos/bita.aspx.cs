@@ -18,7 +18,7 @@ namespace Vuelos
         DataSet ds = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
-            conn.ConnectionString = WebConfigurationManager.AppSettings["connectionStringPago"];
+            conn.ConnectionString = WebConfigurationManager.AppSettings["connectionStringServicios"];
             conn.Open();
             //Ejecuta el stored procedure
             cmd = new SqlCommand("sp_getBitadata", conn);

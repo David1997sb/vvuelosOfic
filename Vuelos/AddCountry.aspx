@@ -57,16 +57,16 @@
                                     </form>
                                 </div>
                                 <div class="card-footer">
-                                    <asp:LinkButton ID="btn_aceptar" runat="server" class="btn btn-primary btn-sm">
+                                    <asp:LinkButton ID="btn_aceptar" runat="server" class="btn btn-primary btn-sm" OnClick="btn_aceptar_Click1">
                             <i class="fa fa-dot-circle-o"></i>Aceptar
                         </asp:LinkButton>
-                                    <asp:LinkButton ID="btn_limpiar" runat="server" class="btn btn-primary btn-sm">
+                                    <asp:LinkButton ID="btn_limpiar" runat="server" class="btn btn-primary btn-sm" OnClick="btn_limpiar_Click1">
                             <i class="fa fa-dot-circle-o"></i>Limpiar
                         </asp:LinkButton>
-                                    <asp:LinkButton ID="btn_borrar" runat="server" class="btn btn-primary btn-sm">
+                                    <asp:LinkButton ID="btn_borrar" runat="server" class="btn btn-primary btn-sm" OnClick="btn_borrar_Click">
                             <i class="fa fa-dot-circle-o"></i>Borrar
                         </asp:LinkButton>
-                                    <asp:LinkButton ID="btn_cerrar" runat="server" class="btn btn-danger btn-sm">
+                                    <asp:LinkButton ID="btn_cerrar" runat="server" class="btn btn-danger btn-sm" OnClick="btn_cerrar_Click">
                             <i class="fa fa-ban"></i>Cerrar
                         </asp:LinkButton>
                                     <div class="register-link m-t-15 text-center">

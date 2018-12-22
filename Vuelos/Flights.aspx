@@ -1,280 +1,155 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Flights.aspx.cs" Inherits="Vuelos.Flights" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Flights.aspx.cs" Inherits="Vuelos.Flights" %>
 
-<!DOCTYPE html>
 
-<html lang="zxx" class="no-js">
-	<head>
-		<!-- Mobile Specific Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
-		<!-- Author Meta -->
-		<meta name="author" content="colorlib">
-		<!-- Meta Description -->
-		<meta name="description" content="">
-		<!-- Meta Keyword -->
-		<meta name="keywords" content="">
-		<!-- meta character set -->
-		<meta charset="UTF-8">
-		
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="description" content="Sufee Admin - HTML5 Admin Template">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-		<!-- Site Title -->
-		<title>V-Vuelos</title>
-		
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-			<!--
-			CSS
-			============================================= -->
-			<link rel="stylesheet" href="assets/css/normalize.css">   
-			<link rel="stylesheet" href="assets/css/normalize.css">
-			<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-			<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-			<link rel="stylesheet" href="assets/css/themify-icons.css">
-			<link rel="stylesheet" href="assets/css/flag-icon.min.css">
-			<link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
-			<link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
-			<link rel="stylesheet" href="css/linearicons.css">
-			<link rel="stylesheet" href="css/font-awesome.min.css">
-			<link rel="stylesheet" href="css/bootstrap.css">
-			<link rel="stylesheet" href="css/magnific-popup.css">
-			<link rel="stylesheet" href="css/nice-select.css">							
-			<link rel="stylesheet" href="css/animate.min.css">
-			<link rel="stylesheet" href="css/owl.carousel.css">			
-			<link rel="stylesheet" href="css/jquery-ui.css">			
-			<link rel="stylesheet" href="css/main.css">
-			<link rel="stylesheet" href="assets/scss/style.css">
-			<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-		</head><body>
-    <form id="form1" runat="server">
-        <header id="header" id="home">
-            <div class="container main-menu">
-                <div class="row align-items-center justify-content-between d-flex">
-                    <div id="logo">
-                        <a href="index.aspx">
-                            <img src="img/logo.png" alt="" title="" /></a>
-                    </div>
-                    <nav id="nav-menu-container">
-                        <ul class="nav-menu">
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="Countries.aspx">Paises</a></li>
-                            <li><a href="Airlines.aspx">Aerolineas</a></li>
-                            <li class="menu-has-children"><a href="Flights.aspx">Aeropuertos</a>
-                                <ul>
-                                    <li><a href="AirportDoors.aspx">Puertas</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-has-children"><a href="">Administrador</a>
-                                <ul>
-                                    <li><a href="Countries.aspx">Paises</a></li>
-                                    <li><a href="Airlines.aspx">Aerolineas</a></li>
-                                    <li><a href="Errors.html">Errores</a></li>
-                                    <li><a href="bita.aspx">Bitácora</a></li>
-                                    <li><a href="Consecutive.aspx">Consecutivos</a></li>
-                                    <li class="menu-has-children"><a href="Airlines.aspx">Aeropuertos</a>
-                                        <ul>
-                                            <li><a href="AirportDoors.aspx">Puertas</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-has-children"><a href="">Usuarios</a>
-                                        <ul>
-                                            <li><a href="#">Crear usuario</a></li>
-                                            <li><a href="createAccount.aspx">Ver lista de usuarios</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- #nav-menu-container -->
+    <!-- start banner Area -->
+    <section class="banner-area relative about-banner" id="home">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white">Vuelos	
+                    </h1>
+                    <p class="text-white link-nav"><a href="inicio">Inicio</a> <span class="lnr lnr-arrow-right"></span><a href="AirportDoors.aspx">Aeropuertos</a><span class="lnr lnr-arrow-right"></span><a href="Flights">Vuelos</a></p>
                 </div>
             </div>
-        </header>
-			  
-			<!-- start banner Area -->
-			<section class="banner-area relative about-banner" id="home">	
-				<div class="overlay overlay-bg"></div>
-				<div class="container">				
-					<div class="row d-flex align-items-center justify-content-center">
-						<div class="about-content col-lg-12">
-							<h1 class="text-white">
-								Aerolineas	
-							</h1>	
-							<p class="text-white link-nav"><a href="inicio.aspx">Inicio</a> <span class="lnr lnr-arrow-right"></span>  <a href="aerolineas.aspx">Aerolineas</a></p>
-						</div>	
-					</div>
-				</div>
-			</section>
-			<!-- End banner Area -->	
+        </div>
+    </section>
+    <!-- End banner Area -->
 
-			<!-- Start popular-courses Area --> 
-			<section class="popular-courses-area section-gap courses-page">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="menu-content pb-70 col-lg-8">
-							<div class="title text-center">
-								<h1 class="mb-10">Explore nuestra lista de aerolineas asociadas</h1>
-								<p>Sujeto a cambios.</p>	
-				<div class="animated fadeIn">
-                <div class="row">
+    <!-- Start description Area -->
+    <section class="popular-courses-area section-gap courses-page">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-70 col-lg-8">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Explore nuestra lista de aerolineas asociadas</h1>
+                        <p>Sujeto a cambios.</p>
+                        <div class="animated fadeIn">
+                            <div class="row">
 
-                <div class="col-md-12">
-                    <div class="card">                       
-                        <div class="card-body">
-                  <div id="bootstrap-data-table_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
-				  <div class="row">				 
-				  <div class="col-sm-12 col-md-6">
-				  <div id="bootstrap-data-table_filter" class="dataTables_filter">
-				  <label>
-				  Buscar por país:
-				  <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="bootstrap-data-table">
-				  </label>
-				  </div>                       
-				  </div>
-                      <div class="card-body card-block">
-                        </section>
-                                    <asp:Label ID="Label1" runat="server" Text="Vuelo" for="text-input" class=" form-control-label"></asp:Label>
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div id="bootstrap-data-table_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <div id="bootstrap-data-table_filter" class="dataTables_filter"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div id="bootstrap-data-table_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                                                <div class="row">
+                                                    <table align="center" style="width: 511px">
+                                                        
+                                                        <tr>
+                                                            <td class="text-right" style="width: 230px">
+                                                                <asp:Label ID="lblAerolinea" runat="server" Text="Aerolinea"></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:DropDownList ID="dropDown_Aero" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown" DataTextField="nombre_agencia" DataValueField="nombre_agencia" DataSourceID="SqlDataSource2">
+                                                                    <asp:ListItem Selected="True" class="dropdown-item"></asp:ListItem>
+                                                                </asp:DropDownList>
+                                                                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="SELECT [nombre_agencia] FROM [aerolineas]"></asp:SqlDataSource>
+                                                            </td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-right" style="width: 230px; height: 25px;">
+                                                                <asp:Label ID="lblProcedencia" runat="server" Text="Procedencia"></asp:Label>
+                                                            </td>
+                                                            <td style="height: 25px">
+                                                                <asp:DropDownList ID="dropDown_Pais" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown" DataTextField="nombre_pais" DataValueField="nombre_pais" DataSourceID="SqlDataSource3">
+                                                                    <asp:ListItem Selected="True" class="dropdown-item"></asp:ListItem>
+                                                                </asp:DropDownList>
+                                                                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="SELECT [nombre_pais] FROM [paises]"></asp:SqlDataSource>
+                                                            </td>
+                                                            <td style="height: 25px"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-right" style="width: 230px">
+                                                                <asp:Label ID="lblTipoPuerta" runat="server" Text="Tipo de puerta"></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:DropDownList ID="dropDown_tipoPuerta" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown" DataTextField="codigo_aerolinea" DataValueField="codigo_aerolinea">
+                                                                    <asp:ListItem Selected="True" class="dropdown-item">Seleccione el tipo de puerta</asp:ListItem>
+                                                                        <asp:ListItem class="dropdown-item">Entrada</asp:ListItem>
+                                                                        <asp:ListItem class="dropdown-item">Salida</asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-right" style="width: 230px">
+                                                                <asp:Label ID="lblNumPuerta" runat="server" Text="Número de puerta"></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:DropDownList ID="dropDown_numPuerta" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown"  DataTextField="numero" DataValueField="numero" DataSourceID="SqlDataSource4">
+                                                                    <asp:ListItem Selected="True" class="dropdown-item"></asp:ListItem>
+                                                                </asp:DropDownList>
+                                                                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="SELECT [numero] FROM [puertas]"></asp:SqlDataSource>
+                                                            </td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 230px" class="text-right">
+                                                                <asp:Label ID="lblCantidadBoletos" runat="server" Text="Cantidad de boletos"></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtBox_CantBoletos" runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 230px" class="text-right">
+                                                                <asp:Label ID="lblPrecio" runat="server" Text="Precio"></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox ID="txt_Precio" runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-right" style="width: 230px">
+                                                                <asp:Label ID="lblFecha" runat="server" Text="Fecha"></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtFecha" runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 230px">&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width: 230px">&nbsp;</td>
+                                                            <td>
+                                                                <asp:LinkButton ID="btnCrearVuelo" runat="server" class="btn btn-primary btn-sm" OnClick="btnCrearVuelo_Click">Crear vuelo</asp:LinkButton>
+                                                            </td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <asp:DropDownList ID="dropDown_vuelo" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown" DataSourceID="vuelos" DataTextField="codigo_aerolinea" DataValueField="codigo_aerolinea"> 
-                                    
-                                </asp:DropDownList>
-                            <asp:SqlDataSource ID="vuelos" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="SELECT [codigo_aerolinea] FROM [aerolineas]"></asp:SqlDataSource>
-                            <div class="row form-group">
-                                <asp:Label ID="Label2" runat="server" Text="Aerolinea" for="text-input" class=" form-control-label"></asp:Label>
-                                 <asp:DropDownList ID="dropDown_Aero" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown" DataSourceID="SqlDataSource2" DataTextField="nombre_agencia" DataValueField="nombre_agencia"> 
-                                    
-                                </asp:DropDownList>
-                                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="SELECT [nombre_agencia] FROM [aerolineas]"></asp:SqlDataSource>
                             </div>
-
-                            <div class="row form-group">
-                                <div class="col col-md-3">
-                                    <asp:Label ID="lbl_procedencia" runat="server" Text="Procedencia" for="text-input" class=" form-control-label"></asp:Label>
-                                    <asp:DropDownList ID="dropDown_Pais" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown" DataSourceID="SqlDataSource1" DataTextField="nombre_pais" DataValueField="nombre_pais" > 
-                                    
-                                </asp:DropDownList>
-                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="SELECT [nombre_pais] FROM [paises]"></asp:SqlDataSource>
-                                </div>
-                                <div class="col-12 col-md-9">
-                                    <div class="col col-md-3">
-                                    <asp:Label ID="Label3" runat="server" Text="Fecha" for="text-input" class=" form-control-label"></asp:Label>
-                                    <asp:TextBox ID="txtBox_fecha" runat="server"></asp:TextBox>
-                                </div>                                                       
-                                </div>
-                                <div class="col-12 col-md-9">
-                                    <asp:Label ID="Label4" runat="server" Text="Tipo Puerta" for="text-input" class=" form-control-label"></asp:Label>
-                                 <asp:DropDownList ID="dropDown_tipoPrueta" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown"> 
-                                    <asp:ListItem Selected="True" class="dropdown-item">Selccion el tipo de puerta</asp:ListItem>
-                                    <asp:ListItem class="dropdown-item" ID="aero">Entrada</asp:ListItem>
-                                    <asp:ListItem class="dropdown-item" id="puerta">Salida</asp:ListItem>
-                                </asp:DropDownList>
-                                </div>
-                                <div class="col-12 col-md-9">
-                                    <asp:Label ID="Label6" runat="server" Text="Numero Puerta" for="text-input" class=" form-control-label"></asp:Label>
-                                    <asp:DropDownList ID="dropDown_numPuerta" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown" DataSourceID="SqlDataSource3" DataTextField="id" DataValueField="id"> 
-                                    <asp:ListItem Selected="True" class="dropdown-item">Selccion el tipo de puerta</asp:ListItem>
-                                    
-                                </asp:DropDownList>
-                                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:vvuelosConnectionString %>" SelectCommand="SELECT [id] FROM [puertas]"></asp:SqlDataSource>
-                                </div>
-                                <div class="col-12 col-md-9">
-                                    <div class="col col-md-3">
-                                    <asp:Label ID="Label5" runat="server" Text="Cantidad de boletos" for="text-input" class=" form-control-label"></asp:Label>
-                                    <asp:TextBox ID="txtBox_CantBoletos" runat="server"></asp:TextBox>
-                                </div>  
-                             <div class="col-12 col-md-9">
-                                    <div class="col col-md-3">
-                                    <asp:Label ID="Label7" runat="server" Text="Precio" for="text-input" class=" form-control-label"></asp:Label>
-                                    <asp:TextBox ID="txt_Precio" runat="server"></asp:TextBox>
-                                </div>          
-                                    <asp:Button ID="Button1" runat="server" Text="Crear vuelo" OnClick="Button1_Click1"/>
-                            </div>
-
-                        </form>
-                    </div>
-				  </div>
-
-				    
-				  <!--<div class="row">				  
-				  <div class="col-sm-12 col-md-7">
-				  <div class="dataTables_paginate paging_simple_numbers" id="bootstrap-data-table_paginate">
-				  <ul class="pagination">
-				  <li class="paginate_button page-item previous disabled" id="bootstrap-data-table_previous">
-				  <a href="#" aria-controls="bootstrap-data-table" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-				  </li>
-				  <li class="paginate_button page-item active">
-				  <a href="#" aria-controls="bootstrap-data-table" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-				  </li>				  
-				  <li class="paginate_button page-item next" id="bootstrap-data-table_next">
-				  <a href="#" aria-controls="bootstrap-data-table" data-dt-idx="7" tabindex="0" class="page-link">Next</a>
-				  </li>
-				  </ul>
-				  </div>
-				  </div>
-				  </div>-->
-				  </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+</asp:Content>
 
-
-                </div>
-            </div>								
-							</div>
-						</div>
-					</div>
-				</div>								
-			</section>
-			<!-- End popular-courses Area -->			
-
-			<!-- Start cta-two Area -->
-			<section class="cta-two-area">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 cta-left">
-							<h1>Inicie sesión para descubrir nuevas funciones.</h1>
-						</div>
-						<div class="col-lg-4 cta-right">
-							<a class="primary-btn wh" href="login.aspx">Iniciar Sesión</a>
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End cta-two Area -->
-						
-			<!-- start footer Area -->		
-			<footer class="footer-area section-gap">
-				<div class="container">					
-					<div class="footer-bottom row align-items-center justify-content-between">
-						<p class="footer-text m-0 col-lg-6 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Hecho con <i class="fa fa-heart-o" aria-hidden="true"></i> por estudiantes de <a href="http://www.ulacit.ac.cr/" target="_blank">ULACIT</a>. Producido por <a href="" target="_blank"> D.Salas, K.Araya</a> y  <a href="" target="_blank">A.Martinez.</a>						
-							<div class="col-lg-6 col-sm-12 footer-social">
-							<img src = "img/ulacit.png" 
-						</div>
-					</div>						
-				</div>
-			</footer>	
-			<!-- End footer Area -->	
-
-
-			<script src="js/vendor/jquery-2.2.4.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-			<script src="js/vendor/bootstrap.min.js"></script>			
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  			<script src="js/easing.min.js"></script>			
-			<script src="js/hoverIntent.js"></script>
-			<script src="js/superfish.min.js"></script>	
-			<script src="js/jquery.ajaxchimp.min.js"></script>
-			<script src="js/jquery.magnific-popup.min.js"></script>	
-    		<script src="js/jquery.tabs.min.js"></script>						
-			<script src="js/jquery.nice-select.min.js"></script>	
-			<script src="js/owl.carousel.min.js"></script>									
-			<script src="js/mail-script.js"></script>	
-			<script src="js/main.js"></script>	
-		    </form>
-		</body>
-	</html>

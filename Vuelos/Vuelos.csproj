@@ -95,6 +95,16 @@
     <Content Include="Errors.aspx" />
     <Content Include="Flights.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="ImgVal\AEROLINEAS-770x513.jpg" />
+    <Content Include="ImgVal\images %281%29.jpg" />
+    <Content Include="ImgVal\images %282%29.jpg" />
+    <Content Include="ImgVal\images %283%29.jpg" />
+    <Content Include="ImgVal\images.jpg" />
+    <Content Include="ImgVal\indonesia.jpg" />
+    <Content Include="ImgVal\italia.jpg" />
+    <Content Include="ImgVal\polonia.jpg" />
+    <Content Include="ImgVal\singapur.jpg" />
+    <Content Include="ImgVal\vietnam.jpg" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
     <Content Include="PuertaEntrada.aspx" />

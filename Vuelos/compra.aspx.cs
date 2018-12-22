@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
-
+using System.Web.UI;
 
 namespace Vuelos
 {
@@ -27,8 +27,11 @@ namespace Vuelos
         protected void Page_Load(object sender, EventArgs e)
         {
             usuario = Session["usserLogged"].ToString();
+            //usuario = "dsalas";
+            //txt_destino.Text = "vietnam";
             txt_destino.Text = Request.QueryString["destino"].ToString();
-            consecutivo = Convert.ToInt32(Request.QueryString["consecutivo"]);
+            consecutivo = 3;
+            //consecutivo = Convert.ToInt32(Request.QueryString["consecutivo"]);
             myDIV.Attributes.Add("style", "display:none");
             div2.Attributes.Add("style", "display:none");
             conn.ConnectionString = WebConfigurationManager.AppSettings["connectionStringPago"];
@@ -36,7 +39,7 @@ namespace Vuelos
             //Ejecuta el stored procedure
             cmd = new SqlCommand("sp_getUsercards", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@user", SqlDbType.VarChar).Value = "dsalas";
+            cmd.Parameters.Add("@user", SqlDbType.VarChar).Value = Session["usserLogged"].ToString();
             conn.Close();
             cards = management.getCardsByUser(cmd, conn);
             getLastCardDigits(cards);
@@ -51,6 +54,25 @@ namespace Vuelos
 
         }
 
+        public bool verifyFieldsCurrent()
+        {
+            bool areOk = true;
+            if(txt_destino.Text==""|| txt_cantBol.Text == "" || DropDownList1.SelectedItem.Value== "Selccione la tarjeta" || dropdown.SelectedItem.Value== "Selccion el tipo de tarjeta")
+            {
+                areOk = false;
+            }
+            return areOk;
+        }
+
+        public bool verifyNewCard()
+        {
+            bool areOk = true;
+            if(txt_numTarjeta.Text==""|| txt_ccv.Text=="" || txt_mesExp.Text=="" || txt_anoExp.Text == "")
+            {
+                areOk = false;
+            }
+            return areOk;
+        }
 
         public string getUserEcriptedCard(string cardNumb)
         {
@@ -156,50 +178,74 @@ namespace Vuelos
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (CheckBox2.Checked)
+            try
             {
 
-                methods.postUserAccount(Convert.ToInt32(txt_numTarjeta.Text),Convert.ToInt32(txt_mesExp.Text),Convert.ToInt32(txt_anoExp.Text),Convert.ToInt32(txt_ccv.Text),tipoTarjeta.SelectedValue.ToString(),usuario,tipoTarjeta.SelectedValue.ToString());
-                int balance = Convert.ToInt32(methods.getUserBalance(usuario, txt_numTarjeta.Text));
-                int price = getPriceByTicket(1);
-                int total =  Convert.ToInt32(txt_cantBol.Text) * price;
-                string type = methods.getCardType(Convert.ToInt32(txt_numTarjeta.Text));
-                if (type.Trim().Contains("Debito"))
+                if (CheckBox2.Checked)
                 {
-                    int newTotal = balance - total;
-                    methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
-                    txt_total.Text = total.ToString();
+                    if (verifyNewCard())
+                    {
 
+                        methods.postUserAccount(Convert.ToInt32(txt_numTarjeta.Text), Convert.ToInt32(txt_mesExp.Text), Convert.ToInt32(txt_anoExp.Text), Convert.ToInt32(txt_ccv.Text), tipoTarjeta.SelectedValue.ToString(), usuario, tipoTarjeta.SelectedValue.ToString());
+                        int balance = Convert.ToInt32(methods.getUserBalance(usuario, txt_numTarjeta.Text));
+                        int price = getPriceByTicket(1006);
+                        int total = Convert.ToInt32(txt_cantBol.Text) * price;
+                        string type = methods.getCardType(Convert.ToInt32(txt_numTarjeta.Text));
+                        if (type.Trim().Contains("Debito"))
+                        {
+                            int newTotal = balance - total;
+                            methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
+                            txt_total.Text = total.ToString();
+
+                        }
+                        else
+                        {
+                            int newTotal = balance + total;
+                            methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
+                            txt_total.Text = total.ToString();
+                        }
+
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, GetType(),
+                           "alertMessage", @"alert('Revise la informacion desplegada')", true);
+                    }
                 }
                 else
                 {
-                    int newTotal = balance + total;
-                    methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
-                    txt_total.Text = total.ToString();
+                    if (verifyFieldsCurrent())
+                    {
+                        string card = getUserEcriptedCard(DropDownList1.SelectedValue.ToString());
+                        int balance = Convert.ToInt32(methods.getUserBalance(usuario, card));
+                        int price = getPriceByTicket(1006);
+                        int total = Convert.ToInt32(txt_cantBol.Text) * price;
+                        txt_total.Text = total.ToString();
+                        string type = methods.getCardType(Convert.ToInt32(card));
+                        if (type.Trim().Contains("Debito"))
+                        {
+                            int newTotal = balance - total;
+                            methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
+                        }
+                        else
+                        {
+                            int newTotal = balance + total;
+                            methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
+
+                        }
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, GetType(),
+                            "alertMessage", @"alert('Revise la informacion desplegada')", true);
+                    }
 
                 }
-
             }
-            else
+            catch(Exception exe)
             {
-                string card = getUserEcriptedCard(DropDownList1.SelectedValue.ToString());
-                int balance = Convert.ToInt32(methods.getUserBalance(usuario, card));
-                int price = getPriceByTicket(1);
-                int total = Convert.ToInt32(txt_cantBol.Text) * price;
-                txt_total.Text = total.ToString(); 
-                    string type = methods.getCardType(Convert.ToInt32(card));
-                if (type.Trim().Contains("Debito"))
-                {
-                    int newTotal = balance - total;
-                    methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
-
-                }
-                else
-                {
-                    int newTotal = balance + total;
-                    methods.updateUserBalance(usuario, txt_numTarjeta.Text, total);
-
-                }
+                ScriptManager.RegisterClientScriptBlock(this, GetType(),
+                            "alertMessage", @"alert('Revise la informacion desplegada')", true);
             }
         }
 

@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/magnific-popup.css" />
     <link rel="stylesheet" href="css/nice-select.css" />
     <link rel="shortcut icon" href="img/fav.png" />
-    <link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="css/animate.min.css" />    
     <link rel="stylesheet" href="css/owl.carousel.css" />
     <link rel="stylesheet" href="css/jquery-ui.css" />
     <link rel="stylesheet" href="css/main.css" />
@@ -48,6 +48,8 @@
                     </div>
                     <nav id="nav-menu-container">
                         <ul class="nav-menu">
+                            
+                            <li><asp:Label ID="txt_bienvenido" runat="server" Text="Bienvenido" ForeColor="White"></asp:Label></li>
                             <li><a href="index.aspx">Inicio</a></li>
                             <li><a href="Countries.aspx">Paises</a></li>
                             <li><a href="Airlines.aspx">Aerolineas</a></li>
@@ -55,6 +57,8 @@
                                 <ul>
                                     <li><a href="Flights.aspx">Vuelos</a></li>
                                     <li><a href="Doors.aspx">Puertas</a></li>
+                                    <li><a href="puertasSalida.aspx">Puertas salida</a></li>
+                                    <li><a href="PuertaEntrada.aspx">Puertas entrada</a></li>
                                 </ul>
                             </li>
                             <li class="menu-has-children"><a href ="#">Administrador</a>

@@ -32,7 +32,13 @@ namespace Vuelos
             //txt_consecutivo.Text = consecutive;
         }
 
-        protected void btn_aceptar_Click(object sender, EventArgs e)
+      
+
+        protected void btn_limpiar_Click(object sender, EventArgs e)
+        {
+        }
+
+        protected void btn_aceptar_Click1(object sender, EventArgs e)
         {
             try
             {
@@ -48,8 +54,8 @@ namespace Vuelos
                 cmd.Parameters.Add("@code", SqlDbType.VarChar).Value = (txt_codPais.Text);
                 //Se ejecuta el query
                 cmd.ExecuteNonQuery();
-               // dbm.addBitaData(conn, "1", "Agregando pais", common.getRegistryType(1), "Agregando pais " + txt_nombrePais.Text);
                 conn.Close();
+                dbm.addBitaData(conn, "1", "Agregando pais", common.getRegistryType(1), "Agregando pais " + txt_nombrePais.Text);
                 ScriptManager.RegisterClientScriptBlock(this, GetType(),
             "alertMessage", @"alert('Datos actualizados correctamente')", true);
                 conn.Close();
@@ -57,17 +63,32 @@ namespace Vuelos
             }
             catch (Exception exe)
             {
-                //dbm.addErrorData(conn, common.getErrorType(1));
+                conn.Close();
+                dbm.addErrorData(conn, common.getErrorType(1));
                 ScriptManager.RegisterClientScriptBlock(this, GetType(),
             "alertMessage", @"alert('Error al ingresar los datos')", true);
             }
         }
 
-        protected void btn_limpiar_Click(object sender, EventArgs e)
+        protected void btn_limpiar_Click1(object sender, EventArgs e)
         {
+
             txt_nombrePais.Text = "";
             txt_codPais.Text = "";
             fp_imagen.Attributes.Clear();
+        }
+
+        protected void btn_borrar_Click(object sender, EventArgs e)
+        {
+
+            txt_nombrePais.Text = "";
+            txt_codPais.Text = "";
+            fp_imagen.Attributes.Clear();
+        }
+        
+        protected void btn_cerrar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Countries.aspx");
         }
     }
 }

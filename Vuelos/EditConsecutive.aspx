@@ -91,15 +91,16 @@
                                     </form>
                                 </div>
                                 <div class="card-footer">
-                                    <asp:LinkButton ID="btn_actualizar" runat="server" class="btn btn-primary btn-sm"> <!--OnClick="btn_actualizar_Click"-->
+                                    <asp:LinkButton ID="btn_actualizar" runat="server" class="btn btn-primary btn-sm"  OnClick="btn_actualizar_Click1"> <!--OnClick="btn_actualizar_Click"-->
                             <i class="fa fa-dot-circle-o"></i>Actualizar
+
                         </asp:LinkButton>
-                                    <asp:LinkButton ID="btn_cancelar" runat="server" class="btn btn-danger btn-sm">
+                                    <asp:LinkButton ID="btn_cancelar" runat="server" class="btn btn-danger btn-sm" OnClick="btn_cancelar_Click">
                             <i class="fa fa-ban"></i>Cancelar
                         </asp:LinkButton>
                                     <div class="register-link m-t-15 text-center">
                                         <%--<a class="primary-btn " href="consecutivo.html">Volver a consecutivos</a>--%>
-                                        <asp:Button ID="btn_regresaConsec" runat="server" Text="Volver a consecutivos" class="primary-btn " />
+                                        <asp:Button ID="btn_regresaConsec" runat="server" Text="Volver a consecutivos" class="primary-btn " OnClick="btn_regresaConsec_Click" />
                                     </div>
                                 </div>
 

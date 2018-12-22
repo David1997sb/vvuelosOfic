@@ -88,8 +88,6 @@
                                                     <asp:ListItem class="dropdown-item">Visa</asp:ListItem>
                                                     <asp:ListItem class="dropdown-item">Mastercard</asp:ListItem>
                                                 </asp:DropDownList>
-												 <asp:DropDownList ID="DropDownList2" runat="server" TabIndex="7" CssClass="btn btn-secondary dropdown-toggle" data-toggle="dropdown"> 
-												</asp:DropDownList>
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>
@@ -133,11 +131,9 @@
                                         </tr>
                                         <tr>
                                             <td class="text-right" style="width: 230px">
-                                                <asp:Label ID="Label7" runat="server" Text="Número de tarjeta"></asp:Label>
-                                            </td>
+                                                &nbsp;</td>
                                             <td>
-                                                <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-                                            </td>
+                                                &nbsp;</td>
                                             <td>&nbsp;</td>
                                         </tr>
                                         <tr>
