@@ -37,7 +37,6 @@
                                                     <asp:GridView ID="GridView1" runat="server" Width="650px" AutoGenerateColumns="False" DataKeyNames="consecutivo" DataSourceID="SqlDataSource1">
                                                         <Columns>
                                                             <asp:BoundField DataField="consecutivo" HeaderText="consecutivo" InsertVisible="False" ReadOnly="True" SortExpression="consecutivo" />
-                                                            <asp:BoundField DataField="vuelo" HeaderText="vuelo" SortExpression="vuelo" />
                                                             <asp:BoundField DataField="aerolinea" HeaderText="aerolinea" SortExpression="aerolinea" />
                                                             <asp:BoundField DataField="procedencia" HeaderText="procedencia" SortExpression="procedencia" />
                                                             <asp:BoundField DataField="fecha" HeaderText="fecha" SortExpression="fecha" />

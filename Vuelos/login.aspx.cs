@@ -21,56 +21,65 @@ namespace Vuelos
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if (areFieldsOk())
+            try
             {
-                if (CaptchaValidate())
-                {
-                    conn.Open();
-                    //Ejecuta el stored procedure
-                    cmd = new SqlCommand("pr_login", conn);
-                    //Se indica que la variable de tipo command va ser de tipo stored procedure
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    //Se agregan los valores de los parametros del stored procedure
-                    cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = txtUser.Text;
-                    cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = txtPassword.Text;
-                    //cmd.Parameters.Add("@Result", SqlDbType.VarChar).Value = "";
-                    //Con la linea siguiente lo que se realiza es obtener el "Output" del query para saber si se ejecut[o correctamente
-                    cmd.Parameters.Add("@Result", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                    //Se ejecuta el query
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    //Vamos a tener un valor true o false para verificar si el comando se ejecutó correctamente
-                    string x = cmd.Parameters["@Result"].Value.ToString();
-                    if (x.Equals("True"))
-                    {
-                        Session["usserLogged"] = txtUser.Text;
-                        if (string.IsNullOrEmpty(Session["currentUrl"] as string))
-                        {
-                            Response.Redirect("index.aspx");
-                        }
-                        string nextUrl = Session["currentUrl"].ToString();
 
-                        Response.Redirect(nextUrl);
+                if (areFieldsOk())
+                {
+                    if (CaptchaValidate())
+                    {
+                        conn.Open();
+                        //Ejecuta el stored procedure
+                        cmd = new SqlCommand("pr_login", conn);
+                        //Se indica que la variable de tipo command va ser de tipo stored procedure
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        //Se agregan los valores de los parametros del stored procedure
+                        cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = txtUser.Text;
+                        cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = txtPassword.Text;
+                        //cmd.Parameters.Add("@Result", SqlDbType.VarChar).Value = "";
+                        //Con la linea siguiente lo que se realiza es obtener el "Output" del query para saber si se ejecut[o correctamente
+                        cmd.Parameters.Add("@Result", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                        //Se ejecuta el query
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        //Vamos a tener un valor true o false para verificar si el comando se ejecutó correctamente
+                        string x = cmd.Parameters["@Result"].Value.ToString();
+                        if (x.Equals("True"))
+                        {
+                            Session["usserLogged"] = txtUser.Text;
+                            if (string.IsNullOrEmpty(Session["currentUrl"] as string))
+                            {
+                                Response.Redirect("index.aspx");
+                            }
+                            string nextUrl = Session["currentUrl"].ToString();
+
+                            Response.Redirect(nextUrl);
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this, GetType(),
+                            "alertMessage", @"alert('Verifique la información desplegada')", true);
+                        }
+                        conn.Close();
                     }
                     else
                     {
                         ScriptManager.RegisterClientScriptBlock(this, GetType(),
-                        "alertMessage", @"alert('Verifique la información desplegada')", true);
+                    "alertMessage", @"alert('Ingrese el captcha correctamente')", true);
                     }
-                    conn.Close();
+
                 }
                 else
                 {
                     ScriptManager.RegisterClientScriptBlock(this, GetType(),
-                "alertMessage", @"alert('Ingrese el captcha correctamente')", true);
+                "alertMessage", @"alert('Verifique la informacion brindada')", true);
                 }
 
             }
-            else
+            catch (Exception exe)
             {
                 ScriptManager.RegisterClientScriptBlock(this, GetType(),
-            "alertMessage", @"alert('Verifique la informacion brindada')", true);
+                        "alertMessage", @"alert('Verifique la información desplegada')", true);
             }
-            
             
         }
         public bool areFieldsOk()
@@ -84,7 +93,7 @@ namespace Vuelos
                     areOk = false;
                 }
                 
-            }catch(Exception exe)
+             }catch(Exception exe)
             {
                 ScriptManager.RegisterClientScriptBlock(this, GetType(),
                         "alertMessage", @"alert('Verifique la información desplegada')", true);

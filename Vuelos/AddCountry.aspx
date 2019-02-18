@@ -70,7 +70,7 @@
                             <i class="fa fa-ban"></i>Cerrar
                         </asp:LinkButton>
                                     <div class="register-link m-t-15 text-center">
-                                        <asp:Button ID="btn_regresaPaises" runat="server" Text="Volver a Paises" class="primary-btn " />
+                                        <asp:Button ID="btn_regresaPaises" runat="server" Text="Volver a Paises" class="primary-btn " OnClick="btn_regresaPaises_Click" />
                                     </div>
                                 </div>
                             </div>

@@ -58,15 +58,13 @@
                                         <tr>
                                             <td class="text-right" style="width: 230px">&nbsp;</td>
                                             <td>
-                                                <asp:CheckBox ID="CheckBox_TarjetasUsuario" runat="server" Text="Tarjetas actuales" AutoPostBack="true" />
-                                            </td>
+                                                &nbsp;</td>
                                             <td>&nbsp;</td>
                                         </tr>
                                         <tr>
                                             <td class="text-right" style="width: 230px">&nbsp;</td>
                                             <td>
-                                                <asp:CheckBox ID="CheckBox1" runat="server" Text="Nueva tarjeta" AutoPostBack="true" />
-                                            </td>
+                                                &nbsp;</td>
                                             <td>&nbsp;</td>
                                         </tr>
                                         <tr>

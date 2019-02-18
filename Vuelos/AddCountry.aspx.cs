@@ -25,7 +25,7 @@ namespace Vuelos
             conn.ConnectionString = WebConfigurationManager.AppSettings["connectionStringServicios"];
             cmd = new SqlCommand("sp_getFirst_available_country", conn);
             consecutive = dbm.getColumValue1(cmd, conn);
-            txt_consecutivo.Text = consecutive;
+            //txt_consecutivo.Text = consecutive;
             codigo = dbm.getMinMaxConsecutive(conn, consecutive);
             txt_codPais.Text = codigo.ToString();
             //consecutive = dbm.getColumValue1(cmd, conn);
@@ -48,7 +48,7 @@ namespace Vuelos
                 //Se indica que la variable de tipo command va ser de tipo stored procedure
                 cmd.CommandType = CommandType.StoredProcedure;
                 //Se agregan los valores de los parametros del stored procedure
-                cmd.Parameters.Add("@consecutivo", SqlDbType.VarChar).Value = consecutive;
+                cmd.Parameters.Add("@consecutivo", SqlDbType.VarChar).Value = txt_consecutivo.Text;
                 cmd.Parameters.Add("@name_country", SqlDbType.VarChar).Value = (txt_nombrePais.Text);
                 cmd.Parameters.Add("@image_country", SqlDbType.VarChar).Value = Server.MapPath(fp_imagen.FileName).ToString();
                 cmd.Parameters.Add("@code", SqlDbType.VarChar).Value = (txt_codPais.Text);
@@ -87,6 +87,11 @@ namespace Vuelos
         }
         
         protected void btn_cerrar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Countries.aspx");
+        }
+
+        protected void btn_regresaPaises_Click(object sender, EventArgs e)
         {
             Response.Redirect("Countries.aspx");
         }

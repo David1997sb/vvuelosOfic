@@ -53,16 +53,24 @@ namespace Vuelos
                         Session["usserLogged"] = txtNombreUsuario.Text;
                         conn.Close();
                         //dbm.addBitaData(conn, "1", "Agregando usuario", common.getRegistryType(1), "Agregando al usuario " + txtNombreUsuario.Text);
+                        if (string.IsNullOrEmpty(Session["currentUrl"] as string))
+                        {
+                            Response.Redirect("index.aspx");
+                        }
                         string nextUrl = Session["currentUrl"].ToString();
-                        Response.Redirect(nextUrl,false);
+
+                        Response.Redirect(nextUrl);
+                        
 
 
                     }
                     catch (Exception se)
                     {
                         conn.Close();
-                        dbm.addErrorData(conn, common.getErrorType(1));
+                        //dbm.addErrorData(conn, common.getErrorType(1));
                         var x = se.ToString();
+                        ScriptManager.RegisterClientScriptBlock(this, GetType(),
+        "alertMessage", @"alert('Revise la informacion desplegada')", true);
                     }
                 }
 

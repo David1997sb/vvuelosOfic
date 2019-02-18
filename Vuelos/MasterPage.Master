@@ -73,12 +73,6 @@
                                             <li><a href="Flights.aspx">Vuelos</a></li>
                                         </ul>
                                     </li>
-                                    <li class="menu-has-children"><a href="#">Usuarios</a>
-                                        <ul>
-                                            <li><a href="createAccount.aspx">Crear usuario</a></li>
-                                            <li><a href="#">Ver lista de usuarios</a></li>
-                                        </ul>
-                                    </li>
                                 </ul>
                             </li>
                         </ul>

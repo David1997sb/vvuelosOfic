@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
-
+using System.Web.UI;
 
 namespace Vuelos
 {
@@ -18,6 +18,7 @@ namespace Vuelos
         Common common = new Common();
         public void addBitaData(SqlConnection conn,string registryCode, string description, string type, string registryDetail)
         {
+            
             conn.Open();
             //Ejecuta el stored procedure
             cmd = new SqlCommand("sp_insert_bitaData", conn);
@@ -36,18 +37,25 @@ namespace Vuelos
 
         public void  addErrorData(SqlConnection conn, string errorMsj)
         {
-            conn.Open();
-            //Ejecuta el stored procedure
-            cmd = new SqlCommand("sp_insert_error", conn);
-            //Se indica que la variable de tipo command va ser de tipo stored procedure
-            cmd.CommandType = CommandType.StoredProcedure;
-            //Se agregan los valores de los parametros del stored procedure
-            cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = HttpContext.Current.Session["usserLogged"]; ;
-            cmd.Parameters.Add("@date", SqlDbType.VarChar).Value = common.GetDate();
-            cmd.Parameters.Add("@msj_error", SqlDbType.VarChar).Value = errorMsj;
-            //Se ejecuta el query
-            int rowsAffected = cmd.ExecuteNonQuery();
-            conn.Close();
+            try
+            {
+                conn.Open();
+                //Ejecuta el stored procedure
+                cmd = new SqlCommand("sp_insert_error", conn);
+                //Se indica que la variable de tipo command va ser de tipo stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+                //Se agregan los valores de los parametros del stored procedure
+                cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = HttpContext.Current.Session["usserLogged"]; ;
+                cmd.Parameters.Add("@date", SqlDbType.VarChar).Value = common.GetDate();
+                cmd.Parameters.Add("@msj_error", SqlDbType.VarChar).Value = errorMsj;
+                //Se ejecuta el query
+                int rowsAffected = cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch(Exception pe)
+            {
+            }
+            
         }
         
         public string getColumValue1(SqlCommand cmd, SqlConnection conn)

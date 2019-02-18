@@ -90,7 +90,7 @@ namespace Vuelos
                     cmd.Parameters.Add("@prefijo", SqlDbType.VarChar).Value = txtbox_prefiInput.Text;
                     cmd.Parameters.Add("@rango_inicial", SqlDbType.Int).Value = rangoI_Input.Text;
                     cmd.Parameters.Add("@rango_final", SqlDbType.Int).Value = rangoF_Input.Text;
-                    //dbm.addBitaData(conn, "2", "Editando consecutivo", common.getRegistryType(2), "Editando consecutivo " + txt_consecutivo.Text);
+                    dbm.addBitaData(conn, "2", "Editando consecutivo", common.getRegistryType(2), "Editando consecutivo " + txt_consecutivo.Text);
                     cmd.ExecuteNonQuery();
                     conn.Close();
 
@@ -103,7 +103,7 @@ namespace Vuelos
             }
             catch (Exception se)
             {
-                //dbm.addErrorData(conn, common.getErrorType(2));
+                dbm.addErrorData(conn, common.getErrorType(2));
                 ScriptManager.RegisterClientScriptBlock(this, GetType(),
                 "alertMessage", @"alert('Revise la informacion desplegada')", true);
                 var x = se.ToString();

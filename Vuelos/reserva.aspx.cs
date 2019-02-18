@@ -41,7 +41,7 @@ namespace Vuelos
                 conn.ConnectionString = WebConfigurationManager.AppSettings["connectionStringServicios"];
 
                 int vueloConsecutivo = getPriceByTicket(consecutivo);
-                methods.postReservation("dsalas", "reservacion", Convert.ToInt32(txtMonto.Text) * vueloConsecutivo, txtBox_BookId.Text,txtBox_numReserva.Text);
+                //methods.postReservation("dsalas", "reservacion", Convert.ToInt32(txtMonto.Text) * vueloConsecutivo, txtBox_BookId.Text,txtBox_numReserva.Text);
 
             }
             else

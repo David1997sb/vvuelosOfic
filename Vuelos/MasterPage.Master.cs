@@ -13,10 +13,12 @@ namespace Vuelos
         {
             if (string.IsNullOrEmpty(Session["usserLogged"] as string))
             {
-                btn_inicioSesion.Text = "Cerrar sesion";
+                btn_inicioSesion.Text = "Iniciar sesion";
             }
             else
             {
+                btn_inicioSesion.Text = "Cerrar sesion";
+
                 txt_bienvenido.Text = "Bienvenido " + Session["usserLogged"].ToString();
             }
             

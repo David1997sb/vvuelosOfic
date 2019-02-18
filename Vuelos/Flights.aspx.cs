@@ -39,30 +39,41 @@ namespace Vuelos
 
         protected void btnCrearVuelo_Click(object sender, EventArgs e)
         {
-            if (verifyFields())
+            try
             {
 
-                conn.Open();
-                //Ejecuta el stored procedure
-                cmd = new SqlCommand("sp_insert_vuelos", conn);
-                //Se indica que la variable de tipo command va ser de tipo stored procedure
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@aerolinea", SqlDbType.VarChar).Value = dropDown_Aero.SelectedItem.Value;
-                cmd.Parameters.Add("@procedencia", SqlDbType.VarChar).Value = dropDown_Pais.SelectedItem.Value;
-                cmd.Parameters.Add("@fecha", SqlDbType.VarChar).Value = common.GetDate();
-                cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = dropDown_tipoPuerta.SelectedItem.Value;
-                cmd.Parameters.Add("@puerta", SqlDbType.VarChar).Value = dropDown_numPuerta.SelectedItem.Value;
-                cmd.Parameters.Add("@boletos", SqlDbType.VarChar).Value = txtBox_CantBoletos.Text;
-                cmd.Parameters.Add("@hora", SqlDbType.VarChar).Value = txtFecha.Text;
-                cmd.Parameters.Add("@precio", SqlDbType.VarChar).Value = txt_Precio.Text;
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                if (verifyFields())
+                {
+
+                    conn.Open();
+                    //Ejecuta el stored procedure
+                    cmd = new SqlCommand("sp_insert_vuelos", conn);
+                    //Se indica que la variable de tipo command va ser de tipo stored procedure
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@aerolinea", SqlDbType.VarChar).Value = dropDown_Aero.SelectedItem.Value;
+                    cmd.Parameters.Add("@procedencia", SqlDbType.VarChar).Value = dropDown_Pais.SelectedItem.Value;
+                    cmd.Parameters.Add("@fecha", SqlDbType.VarChar).Value = common.GetDate();
+                    cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = dropDown_tipoPuerta.SelectedItem.Value;
+                    cmd.Parameters.Add("@puerta", SqlDbType.VarChar).Value = dropDown_numPuerta.SelectedItem.Value;
+                    cmd.Parameters.Add("@boletos", SqlDbType.VarChar).Value = txtBox_CantBoletos.Text;
+                    cmd.Parameters.Add("@hora", SqlDbType.VarChar).Value = txtFecha.Text;
+                    cmd.Parameters.Add("@precio", SqlDbType.VarChar).Value = txt_Precio.Text;
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, GetType(),
+                               "alertMessage", @"alert('Revise la informacion desplegada')", true);
+                }
             }
-            else
+            catch(Exception exe)
             {
                 ScriptManager.RegisterClientScriptBlock(this, GetType(),
-                           "alertMessage", @"alert('Revise la informacion desplegada')", true);
+                               "alertMessage", @"alert('Revise la informacion desplegada')", true);
             }
+
+
         }
 
         public bool verifyFields()

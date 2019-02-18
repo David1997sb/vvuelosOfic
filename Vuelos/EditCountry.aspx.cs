@@ -59,9 +59,26 @@ namespace Vuelos
 
         protected void btn_limpiar_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        protected void btn_limpiar_Click1(object sender, EventArgs e)
+        {
             txt_codPais.Text = "";
             txt_nombrePais.Text = "";
             fp_imagen.Attributes.Clear();
+        }
+
+        protected void btn_borrar_Click1(object sender, EventArgs e)
+        {
+            txt_codPais.Text = "";
+            txt_nombrePais.Text = "";
+            fp_imagen.Attributes.Clear();
+        }
+
+        protected void btn_cerrar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Countries.aspx");
         }
     }
 }

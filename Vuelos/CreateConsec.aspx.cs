@@ -116,7 +116,7 @@ namespace Vuelos
             {
                 isOk = true;
             }
-            if (initRange < finalRange || initRange < 0 || finalRange<0)
+            if (initRange > finalRange || initRange < 0 || finalRange<0)
             {
                 isOk = false;
             }

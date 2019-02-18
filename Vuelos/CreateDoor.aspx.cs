@@ -55,7 +55,7 @@ namespace Vuelos
             }
             catch (Exception exe)
             {
-                //dbm.addErrorData(conn, common.getErrorType(1));
+                dbm.addErrorData(conn, common.getErrorType(1));
                 ScriptManager.RegisterClientScriptBlock(this, GetType(),
             "alertMessage", @"alert('Error al ingresar los datos')", true);
             }
@@ -63,12 +63,14 @@ namespace Vuelos
 
         protected void btn_borrar_Click(object sender, EventArgs e)
         {
-
+            txt_codPuerta.Text = "";
+            txt_codPuerta.Text = "";
+            txt_detalle.Text = "";
         }
 
         protected void btn_cerrar_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("index.aspx");
         }
     }
 }

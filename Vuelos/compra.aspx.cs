@@ -111,9 +111,18 @@ namespace Vuelos
 
         public void insertDataIntoDropDown()
         {
-            for (int i = 0; i < encriptedCards.Count; i++)
+            try
             {
-                DropDownList1.Items.Add(encriptedCards[i]);
+
+                for (int i = 0; i < encriptedCards.Count; i++)
+                {
+                    DropDownList1.Items.Add(encriptedCards[i]);
+                }
+            }
+            catch(Exception e)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, GetType(),
+                       "alertMessage", @"alert('Verifique la información desplegada')", true);
             }
         }
 
@@ -144,35 +153,64 @@ namespace Vuelos
 
         public int getTickets(int consecutivo)
         {
-            conn.Open();
-            cmd = new SqlCommand("sp_getAvailableTickets", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@consecutivo", SqlDbType.Int).Value = consecutivo;
-            conn.Close();
-            int value = Convert.ToInt32(manage.getColumValue1(cmd, conn));
+            int value = 0;
+            try
+            {
+                conn.Open();
+                cmd = new SqlCommand("sp_getAvailableTickets", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@consecutivo", SqlDbType.Int).Value = consecutivo;
+                conn.Close();
+                value = Convert.ToInt32(manage.getColumValue1(cmd, conn));
+            }
+            catch (Exception)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, GetType(),
+                       "alertMessage", @"alert('Verifique la información desplegada')", true);
+            }
+            
             return value;
         }
 
         public void setTicketVuelo(int consecutivo)
         {
-            conn.Open();
-            cmd = new SqlCommand("sp_updateTickets", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@consecutivo", SqlDbType.Int).Value = consecutivo;
-            cmd.Parameters.Add("@cantidadDisponible", SqlDbType.Int).Value = consecutivo;
-            cmd.ExecuteNonQuery();
-            conn.Close();
-           
+            try
+            {
+
+                conn.Open();
+                cmd = new SqlCommand("sp_updateTickets", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@consecutivo", SqlDbType.Int).Value = consecutivo;
+                cmd.Parameters.Add("@cantidadDisponible", SqlDbType.Int).Value = consecutivo;
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+            }
+            catch (Exception exe)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, GetType(),
+                       "alertMessage", @"alert('Verifique la información desplegada')", true);
+            }           
         }
 
         public int getPriceByTicket(int consecutivo)
         {
-            conn.Open();
-            cmd = new SqlCommand("sp_getPriceByTicket", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@consecutivo", SqlDbType.Int).Value = consecutivo;
-            conn.Close();
-            int price = Convert.ToInt32(manage.getColumValue1(cmd, conn));
+            int price = 1000;
+            try
+            {
+                conn.Open();
+                cmd = new SqlCommand("sp_getPriceByTicket", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@consecutivo", SqlDbType.Int).Value = consecutivo;
+                conn.Close();
+                price = Convert.ToInt32(manage.getColumValue1(cmd, conn));
+            }
+            catch(Exception exe)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, GetType(),
+                       "alertMessage", @"alert('Verifique la información desplegada')", true);
+            }
+            
             return price;
         }
 
